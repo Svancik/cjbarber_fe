@@ -1,7 +1,7 @@
 .sliderInfo{
     position: absolute;
     z-index: 2;
-    top: 25%;
+    top: 15%;
     left: 0;
     right: 0;
     width: 50vw;
@@ -11,10 +11,24 @@
 }
 
 .sliderInfo .bottom{
-    width: 40vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
+    padding-bottom: 40px;
 }
+
+.sliderInfo .bottom .row{
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 22px;
+    margin-bottom: 3px;
+    padding-top: 20px;
+
+}
+
+
+
 
 .sliderInfo h1{
     color: white;
@@ -39,5 +53,39 @@
 }
 
 .sliderInfo .row hr{
-    width: 50%;
+    width: 60%;
+}
+
+
+.smallHr{
+    width: 30vw;
+}
+
+.openingHours{
+    font-size: 18px;
+}
+
+.openingHours .day{
+    text-align: left;
+    padding-right: 20px;
+    font-weight: 500;
+}
+
+.openingHours .hours{
+    text-align: left;
+}
+
+.sliderInfo .reservation{
+    background-color: rgba(0, 0, 0, 0.72);
+    color: gold;
+    font-weight:600;
+    font-size: 20px;
+    outline: none;
+    padding: 15px 18px;
+    border: 1px solid gold;
+    width: 250px; 
+    margin: auto;
+    cursor: pointer;
+    margin-top: 30px;
+
 }
