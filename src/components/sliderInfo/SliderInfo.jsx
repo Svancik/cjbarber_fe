@@ -26,7 +26,7 @@ export const SliderInfo = () => {
         <div className="row">
           <hr />
           <table className="openingHours">
-            <tr>
+            <tr className="closed">
               <td className="day">Pondělí: </td>
               <td className="hours">zavřeno</td>
             </tr>
@@ -56,7 +56,7 @@ export const SliderInfo = () => {
               <td className="hours">10:00 - 22:00</td>
             </tr>
 
-            <tr>
+            <tr className="closed">
               <td className="day">Neděle: </td>
               <td className="hours">zavřeno</td>
             </tr>

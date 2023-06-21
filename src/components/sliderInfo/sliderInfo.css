@@ -1,7 +1,7 @@
 .sliderInfo{
     position: absolute;
     z-index: 2;
-    top: 15%;
+    top: 12.5%;
     left: 0;
     right: 0;
     width: 50vw;
@@ -63,6 +63,10 @@
 
 .openingHours{
     font-size: 18px;
+}
+
+.openingHours .closed{
+    color: rgba(245, 245, 245, 0.691);
 }
 
 .openingHours .day{
