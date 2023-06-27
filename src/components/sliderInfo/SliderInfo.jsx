@@ -1,6 +1,7 @@
 import React from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import "./sliderInfo.css";
 
 export const SliderInfo = () => {
@@ -24,7 +25,7 @@ export const SliderInfo = () => {
         </div>
 
         <div className="row">
-          <hr />
+          <AccessTimeIcon className="timeIcon" />
           <table className="openingHours">
             <tr className="closed">
               <td className="day">Pondělí: </td>

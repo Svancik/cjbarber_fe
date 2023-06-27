@@ -1,5 +1,5 @@
 .slider{
-    height: 80vh;
+    height: 75vh;
     width: 100vw;
     position: relative;
     margin-bottom: 50px;
@@ -13,8 +13,8 @@
     height: 100%;
     display: flex;
     transition: all 1s ease;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 66%);
-    padding-bottom: 20rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 76%);
+    padding-bottom: 10rem;
 }       
 
 .slider img{
@@ -38,7 +38,7 @@
         z-index: 999;
         color: #f04c4c;   
 }
-   
+
 
 .icon{
    width: 50px;

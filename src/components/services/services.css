@@ -1,0 +1,22 @@
+
+.services{
+    width: 100%;
+    max-width: 1220px;
+    margin: auto;
+    text-align: center;
+    margin-top: -5rem;
+}
+
+.services .sluzby{
+    margin: auto;
+    font-size: 55px;
+}
+
+.services .headerUnderline{
+    width: 420px;
+    height: 1px;
+    background-color: black;
+    font-weight: 900;
+    font-size: 32px;
+}
+   

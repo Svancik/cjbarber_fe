@@ -1,7 +1,7 @@
 .sliderInfo{
     position: absolute;
     z-index: 2;
-    top: 12.5%;
+    top: 5.5%;
     left: 0;
     right: 0;
     width: 50vw;
@@ -24,7 +24,6 @@
     font-size: 22px;
     margin-bottom: 3px;
     padding-top: 20px;
-
 }
 
 
@@ -33,9 +32,6 @@
 .sliderInfo h1{
     color: white;
     font-size: 65px;
-    font-family: 'Foldit', cursive;
-
-    font-family: 'Sacramento', cursive;
     letter-spacing: 1.75px;
     font-weight:900;
     text-align: center;
@@ -61,8 +57,22 @@
     width: 30vw;
 }
 
+.openHours{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    color: pink;
+}
+
 .openingHours{
     font-size: 18px;
+}
+
+.row .timeIcon{
+    width: 42px;
+    height: 42px;
+    color: gold;
+    margin-bottom: 5px;
 }
 
 .openingHours .closed{
@@ -91,5 +101,10 @@
     margin: auto;
     cursor: pointer;
     margin-top: 30px;
+    transition: all 1s ease;
+}
 
+.sliderInfo .reservation:hover{
+    background-color: gold;
+    color:black;
 }
