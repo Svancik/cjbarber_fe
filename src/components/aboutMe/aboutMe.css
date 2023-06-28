@@ -1,0 +1,54 @@
+.aboutMeWrapper{
+    width: 100vw;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+    height: 80vh;
+    padding-top: 10rem;
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.aboutMeWrapper .headerUnderline{
+    width: 420px;
+    height: 1px;
+}
+
+.aboutMe{
+    max-width: 1600px;
+    margin: auto;
+    margin-top: 5rem;
+    display: flex;
+}
+
+.aboutMe .left{
+    flex: 2;
+}
+
+.aboutMe .left img{
+    height: 520px;   
+}
+
+.aboutMe .right{
+    flex: 8;
+    text-align: left;
+    padding-left: 120px;
+}
+
+.aboutMe .right h2{
+    font-weight: 400;
+    color: gold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 15px;
+}
+
+.aboutMe .right span{
+    color: white;
+    line-height: 1.75;
+    text-transform: none;
+
+
+}
+
+
+

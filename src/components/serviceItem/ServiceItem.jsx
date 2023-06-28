@@ -29,7 +29,11 @@ export const ServiceItem = ({ service }) => {
           </div>
         </div>
       </div>
-      <hr className={service.id % 2 === 1 ? "thinHR rightContent" : "thinHR"} />
+      {service.id !== 5 && (
+        <hr
+          className={service.id % 2 === 1 ? "thinHR rightContent" : "thinHR"}
+        />
+      )}
     </div>
   );
 };

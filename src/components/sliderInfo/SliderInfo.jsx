@@ -25,7 +25,7 @@ export const SliderInfo = () => {
         </div>
 
         <div className="row">
-          <AccessTimeIcon className="timeIcon" />
+          {/* <AccessTimeIcon className="timeIcon" /> */}
           <table className="openingHours">
             <tr className="closed">
               <td className="day">Pondělí: </td>

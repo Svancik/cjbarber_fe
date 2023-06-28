@@ -36,9 +36,9 @@ export const services = [
       id: 5,
       icon: "fajnsmekr",
       time: "90",
-      header: "Fajnšmekr",
+      header: "Masírek",
       cena: "1490",
-      text: "Střih vlasů, zastřižení tvaru vousů strojkem před holením, úprava obočí a kontur, mytí vlasů, opálení uší, balzám před holením, úprava vousů břitvou (Hot towel + napaření steamerem (holení s párou), peeling obličeje, ošetření balzámem po holení, závěrečná úprava vousů, balzám či olej na vousy, styling, kolínská či parfémová voda dle výběru, parafínový zábal rukou, depilace chloupků v nose, masáž hlavy. "
+      text: "Úprava vousů břitvou (Hot towel + napaření steamerem (holení s párou), peeling obličeje, ošetření balzámem po holení, závěrečná úprava vousů, balzám či olej na vousy, styling, kolínská či parfémová voda dle výběru, parafínový zábal rukou, depilace chloupků v nose, masáž hlavy. "
     },
     
 

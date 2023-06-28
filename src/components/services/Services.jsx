@@ -5,12 +5,14 @@ import { ServiceItem } from "../serviceItem/ServiceItem";
 
 export const Services = () => {
   return (
-    <div className="services">
-      <h1 className="sluzby">SLUŽBY A CENY</h1>
-      <hr className="headerUnderline"/>
-      {services.map((service) => (
-        <ServiceItem service={service} />
-      ))}
+    <div className="servicesWrapper">
+      <div className="services">
+        <h1 className="sluzby">SLUŽBY A CENY</h1>
+        <hr className="headerUnderline" />
+        {services.map((service) => (
+          <ServiceItem service={service} />
+        ))}
+      </div>
     </div>
   );
 };

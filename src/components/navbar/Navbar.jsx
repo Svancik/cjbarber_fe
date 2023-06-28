@@ -9,8 +9,8 @@ export const Navbar = () => {
       </div>
       <div className="right">
         <span>Úvod</span>
-        <span>Kdo jsem</span>
         <span>Služby</span>
+        <span>Kdo jsem</span>
         <span>Galerie</span>
         <span>Kontakt</span>
       </div>

@@ -1,4 +1,9 @@
 
+.servicesWrapper{
+    width: 100vw;
+    padding-top: 2rem;
+}
+
 .services{
     width: 100%;
     max-width: 1220px;
@@ -8,8 +13,7 @@
 }
 
 .services .sluzby{
-    margin: auto;
-    font-size: 55px;
+    
 }
 
 .services .headerUnderline{
