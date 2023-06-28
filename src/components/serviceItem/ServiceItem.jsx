@@ -25,7 +25,9 @@ export const ServiceItem = ({ service }) => {
             }
           >
             {" "}
-            <span>Cena: {service.cena},–</span>
+            <div className="priceBorder">
+              <span>Cena: {service.cena},–</span>
+            </div>
           </div>
         </div>
       </div>

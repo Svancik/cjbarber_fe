@@ -5,7 +5,7 @@ export const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <img src={require("../../media/logoVector.jpg")} alt="" />
+        <img src={require("../../media/logoVector.png")} alt="" />
       </div>
       <div className="right">
         <span>Úvod</span>

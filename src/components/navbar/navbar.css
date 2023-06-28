@@ -3,10 +3,9 @@
     background-color: white;
     z-index: 99999;
     top: 0px;
-    position: absolute;
     width: 100vw;
-    height: 7vh;
-    /* border-bottom: 1px solid #1b0760; */
+    height: 75px;
+     border-bottom: 1px solid #1b0760; 
     display: flex;
     
 }
@@ -19,7 +18,7 @@
 }
 
 .left img{
-    height: 80px;
+    height: 75px;
 }
 
 .right{
