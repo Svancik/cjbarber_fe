@@ -1,0 +1,39 @@
+.footerWrapper{
+    width: 100vw;
+    background-color: black;
+    color: white;
+    padding: 30px;
+    padding-top: 50px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.footerWrapper .footerRow{
+    display: grid;
+    grid-template-columns: 32px 300px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+.footerRow span{
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.footerRow .bold{
+    font-weight: 500;
+}
+
+.footerWrapper .location{
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 10px;
+}
+
+.location .name{
+    margin-top: -7.5px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+    

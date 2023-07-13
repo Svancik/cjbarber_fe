@@ -5,7 +5,7 @@
     margin-top: -17rem;
     background-color: white;
     color: black;
-    padding-top: 20rem;
+    padding-top: 12rem;
     clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
 }
 
@@ -53,6 +53,7 @@
     margin-top: 200px;
     width: 20vw;
     margin: auto;
+    padding-bottom: 15px;
   }
 
 .viewMore h4{

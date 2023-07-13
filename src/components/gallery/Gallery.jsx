@@ -61,7 +61,6 @@ export const Gallery = () => {
         <h4>
           <span>Zobrazit více</span>
         </h4>
-        <button></button>
       </div>
     </div>
   );
