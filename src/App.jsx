@@ -4,6 +4,7 @@ import React from "react";
 import { Slider } from "./components/slider/Slider";
 import { Services } from "./components/services/Services";
 import { AboutMe } from "./components/aboutMe/AboutMe";
+import { Gallery } from "./components/gallery/Gallery";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Slider />
       <Services />
       <AboutMe />
+      <Gallery />
     </div>
   );
 }

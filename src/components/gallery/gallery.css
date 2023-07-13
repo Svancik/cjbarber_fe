@@ -1,0 +1,86 @@
+.galleryWrapper{
+    width: 100vw;
+    
+    text-align: center;
+    margin-top: -17rem;
+    background-color: white;
+    color: black;
+    padding-top: 20rem;
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.galleryWrapper .headerUnderline{
+    width: 420px;
+    height: 1px;
+}
+
+.galleryContainer {
+    display: grid;
+    height: 1000px;
+    /*pomocí repeat se budou hodnoty dle čísla v metodě tolikrát opakovat*/
+    /* grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(2, 100px); */
+    grid-template-rows: repeat(9, 1fr);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    justify-items: center; /*Zarovná itemy uvnitř gridu horizontálně */
+    align-items: center; /*Zarovná itemy uvnitř gridu vertikálně */
+    justify-content: center; /*Zarovná CELÝ grid horizontálně*/
+    align-content: top; /*Zarovná CELÝ grid vertikálně */
+  }
+  .galleryContainer img,
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    transition: all ease-out 1s;
+  }
+
+  .galleryContainer img:hover{
+    cursor: pointer;
+    width: 104%;
+    height: 104%;
+  }
+  
+  .galleryContainer .galleryCell {
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .viewMore{
+    margin-top: 200px;
+    width: 20vw;
+    margin: auto;
+  }
+
+.viewMore h4{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #2879fe; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+  color: #2879fe;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.viewMore h4 span{
+  background:#fff; 
+  padding:0 10px; 
+}
+
+
+  @media screen and (min-width: 1024px) {
+    .galleryContainer {
+      grid-template: repeat(6, 300px) / repeat(4, 300px);
+      gap: 25px;
+    }
+    .bigGalleryItemRow23 {
+      grid-area: 1 / 3 / 4 / 5;
+    }
+    .bigGalleryItemRow34 {
+      grid-area: 4 / 1 / 6 / 3;
+    }
+  }
