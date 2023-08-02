@@ -24,7 +24,7 @@ export const Slider = () => {
         }}
       >
         {slideReality.map((slideRealita) => (
-          <img src={slideRealita.foto[0]} alt="" />
+          <img src={require("../../media/slider.jpg")} alt="" />
         ))}
       </div>
     </div>
