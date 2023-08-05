@@ -14,26 +14,29 @@
     height: 1px;
 }
 
+.galleryWrapper h1{
+}
+
 .galleryContainer {
+  margin-top: 50px;
     display: grid;
     height: 1000px;
     /*pomocí repeat se budou hodnoty dle čísla v metodě tolikrát opakovat*/
     /* grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(2, 100px); */
     grid-template-rows: repeat(9, 1fr);
-    padding-top: 30px;
-    padding-bottom: 20px;
-    justify-items: center; /*Zarovná itemy uvnitř gridu horizontálně */
+     justify-items: center; /*Zarovná itemy uvnitř gridu horizontálně */
     align-items: center; /*Zarovná itemy uvnitř gridu vertikálně */
     justify-content: center; /*Zarovná CELÝ grid horizontálně*/
     align-content: top; /*Zarovná CELÝ grid vertikálně */
+    padding-bottom: 100px;
+    margin-bottom: 50px;
   }
   .galleryContainer img,
   video {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    padding: 10px;
     transition: all ease-out 1s;
   }
 
@@ -41,6 +44,7 @@
     cursor: pointer;
     width: 104%;
     height: 104%;
+    
   }
   
   .galleryContainer .galleryCell {
@@ -49,11 +53,14 @@
 
   }
 
+  .hiddenContainer{
+    margin-top: -20px;
+  }
+
   .viewMore{
-    margin-top: 200px;
+  
     width: 20vw;
     margin: auto;
-    padding-bottom: 15px;
   }
 
 .viewMore h4{
@@ -75,13 +82,11 @@
 
   @media screen and (min-width: 1024px) {
     .galleryContainer {
-      grid-template: repeat(6, 300px) / repeat(4, 300px);
+      grid-template: repeat(3, 350px) / repeat(4, 350px);
       gap: 25px;
     }
-    .bigGalleryItemRow23 {
+    .bigItem {
       grid-area: 1 / 3 / 4 / 5;
     }
-    .bigGalleryItemRow34 {
-      grid-area: 4 / 1 / 6 / 3;
-    }
+
   }

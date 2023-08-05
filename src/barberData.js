@@ -43,3 +43,85 @@ export const services = [
     
 
 ]
+
+export const visibleGalleryItems = [
+  {
+      id: 1,
+      src: "strih1.JPG"
+  },
+  {
+      id: 2,
+      src: "videoStrih1.MP4",
+      extraCSS: "bigItem",
+      video: true,
+  },
+  {
+      id: 3,
+      src: "strih2.JPG",
+  },
+  {
+      id: 4,
+      src: "strih3.JPG",
+  },
+  {
+      id: 5,
+      src: "strih5.JPG",
+  },
+  {
+      id: 6,
+      src: "strih7.JPG",
+  },
+  {
+      id: 7,
+      src: "strih8.JPG",
+  },
+]
+
+export const hiddenGalleryItems = [
+  {
+   id: 1,
+   src: "strih11.JPG" 
+  },
+  {
+   id: 2,
+   src: "videoStrih2.MP4",
+   video: true,
+   extraCSS: "mediumItem" 
+  },
+  {
+   id: 3,
+   src: "strih12.JPG" 
+  },
+  {
+   id: 4,
+   src: "strih4.JPG" 
+  },
+  {
+   id: 5,
+   src: "strih6.JPG" 
+  },
+  {
+   id: 6,
+   src: "strih9.JPG" 
+  },
+  {
+   id: 7,
+   src: "strih10.JPG" 
+  },
+  {
+   id: 8,
+   src: "strih13.JPG" 
+  },
+  {
+   id: 9,
+   src: "strih14.JPG" 
+  },
+  {
+   id: 10,
+   src: "strih15.jpg" 
+  },
+  {
+   id: 11,
+   src: "strih16.jpg" 
+  },
+]
