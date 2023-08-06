@@ -7,6 +7,16 @@ import { AboutMe } from "./components/aboutMe/AboutMe";
 import { Gallery } from "./components/gallery/Gallery";
 import { Footer } from "./components/footer/Footer";
 
+/*
+TODO:
+
+- ODKAZY Z NAVBAR na sekce
+- Rezervační systém
+- Předělání Služeb
+- Galerie při kliknutí na fotku 
+
+
+*/
 function App() {
   return (
     <div className="wrapper">

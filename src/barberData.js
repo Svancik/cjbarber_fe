@@ -79,49 +79,49 @@ export const visibleGalleryItems = [
 
 export const hiddenGalleryItems = [
   {
-   id: 1,
+   id: 8,
    src: "strih11.JPG" 
   },
   {
-   id: 2,
+   id: 9,
    src: "videoStrih2.MP4",
    video: true,
    extraCSS: "mediumItem" 
   },
   {
-   id: 3,
+   id: 10,
    src: "strih12.JPG" 
   },
   {
-   id: 4,
+   id: 11,
    src: "strih4.JPG" 
   },
   {
-   id: 5,
+   id: 12,
    src: "strih6.JPG" 
   },
   {
-   id: 6,
+   id: 13,
    src: "strih9.JPG" 
   },
   {
-   id: 7,
+   id: 14,
    src: "strih10.JPG" 
   },
   {
-   id: 8,
+   id: 15,
    src: "strih13.JPG" 
   },
   {
-   id: 9,
+   id: 16,
    src: "strih14.JPG" 
   },
   {
-   id: 10,
+   id: 17,
    src: "strih15.jpg" 
   },
   {
-   id: 11,
+   id: 18,
    src: "strih16.jpg" 
   },
 ]

@@ -14,26 +14,32 @@ export const AboutMe = () => {
         </div>
         <div className="right">
           <h2>Sam</h2>
-          <span>Jmenuji se SAM a rád si o víkendu ujíždim na speedu.</span>{" "}
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </span>{" "}
           <br />
           <span>
-            Ačkoliv speed miluju, tak když v ruce držím holičský strojek, nikam
-            nespěchám a nechávám si záležet na tom, abyste z mého babershopu
-            odešli plný sebevědomí.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
+            dolorem repellendus nesciunt id exercitationem veritatis optio quis
+            in delectus, quasi incidunt nulla, cum qui porro tempora commodi nam
+            reiciendis!
           </span>{" "}
           <br />
           <br />
           <span>
-            Spokojenost zákazníků je pro mne prioritou, proto se vám snažím
-            zajistit maximální komfort a v mém holičství je k nalezení sortiment
-            začínající od lahodných drinků, elektronické cigarety až po čáru
-            speedu pro zlaté členy klubu CJ´s barbershop.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+            officia eum, vitae molestias pariatur fuga, repellat quo rerum
+            molestiae nemo similique facere debitis quod enim sapiente quisquam
+            reiciendis natus ipsa perferendis maxime autem labore et. Aspernatur
+            nobis at dolores commodi dolorum totam asperiores accusantium culpa.
           </span>
           <br />
           <br />
           <span>
-            Svěřte mi do rukou vaši visáž a věřte mi, že si budete chtít rezervovat další návštěvu, která pro vás nebude pouhým ostříháním,
-            ale také důvtipnou konverzací, posloucháním neurofunku a naladěním na mou věčně pozitivní energii.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+            doloribus pariatur maiores incidunt sunt rem vel velit error
+            veritatis laborum! Rerum, in a tenetur autem adipisci mollitia et
+            quos fugit.
           </span>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./galleryItem.css";
 
-export const GalleryItem = ({ galleryItem }) => {
+export const GalleryItem = ({ galleryItem, handleOpen }) => {
   return (
     <>
       {galleryItem.video ? (
@@ -12,7 +12,7 @@ export const GalleryItem = ({ galleryItem }) => {
               : "galleryCell"
           }
         >
-          <video controls loop autoPlay muted controls>
+          <video controls loop autoPlay muted controls className="galleryItem">
             <source
               src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}
               type="video/mp4"
@@ -27,6 +27,8 @@ export const GalleryItem = ({ galleryItem }) => {
             src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}
             alt=""
             srcset=""
+            onClick={() => handleOpen(galleryItem.id - 1)}
+            className="galleryItem"
           />
         </div>
       )}
