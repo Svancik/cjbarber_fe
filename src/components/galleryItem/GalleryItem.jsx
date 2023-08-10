@@ -12,7 +12,15 @@ export const GalleryItem = ({ galleryItem, handleOpen }) => {
               : "galleryCell"
           }
         >
-          <video controls loop autoPlay muted controls className="galleryItem">
+          <video
+            controls
+            loop
+            autoPlay
+            muted
+            controls
+            className="galleryItem"
+            onClick={() => handleOpen(galleryItem.id - 1)}
+          >
             <source
               src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}
               type="video/mp4"
