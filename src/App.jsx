@@ -1,12 +1,8 @@
 import "./App.css";
-import { Navbar } from "./components/navbar/Navbar";
 import React from "react";
-import { Slider } from "./components/slider/Slider";
-import { Services } from "./components/services/Services";
-import { AboutMe } from "./components/aboutMe/AboutMe";
-import { Gallery } from "./components/gallery/Gallery";
-import { Footer } from "./components/footer/Footer";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
 /*
 TODO:
 
@@ -20,12 +16,11 @@ TODO:
 function App() {
   return (
     <div className="wrapper">
-      <Navbar />
-      <Slider />
-      <Services />
-      <AboutMe />
-      <Gallery />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

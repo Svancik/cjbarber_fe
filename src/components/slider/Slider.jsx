@@ -14,7 +14,7 @@ export const Slider = () => {
   console.log(slideReality);
 
   return (
-    <div className="slider">
+    <div className="slider" id="uvod">
       <SliderInfo />
       <div
         className="container"

@@ -3,7 +3,7 @@ import "./aboutMe.css";
 
 export const AboutMe = () => {
   return (
-    <div className="aboutMeWrapper">
+    <div className="aboutMeWrapper" id="kdojsem">
       {" "}
       <h1>KDO JSEM</h1>
       <hr className="headerUnderline" />

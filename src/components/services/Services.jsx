@@ -5,7 +5,7 @@ import { ServiceItem } from "../serviceItem/ServiceItem";
 
 export const Services = () => {
   return (
-    <div className="servicesWrapper">
+    <div className="servicesWrapper" id="sluzby">
       <div className="services">
         <h1 className="sluzby">SLUŽBY A CENY</h1>
         <hr className="headerUnderline" />

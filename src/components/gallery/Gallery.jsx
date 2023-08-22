@@ -4,12 +4,9 @@ import { GalleryItem } from "./../galleryItem/GalleryItem";
 import { hiddenGalleryItems, visibleGalleryItems } from "../../barberData";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CancelIcon from "@mui/icons-material/Cancel";
-import SmoothRender from "react-smooth-render";
 
 export const Gallery = ({ col3 }) => {
   const allGalleryItems = [...visibleGalleryItems, ...hiddenGalleryItems];
@@ -43,7 +40,7 @@ export const Gallery = ({ col3 }) => {
   };
 
   return (
-    <div className="galleryWrapper">
+    <div className="galleryWrapper" id="galerie">
       <h1>GALERIE</h1>
       <hr className="headerUnderline" />
 
