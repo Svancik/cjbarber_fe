@@ -1,23 +1,99 @@
+export const servicesCategories = [
+  {
+    id: 1,
+    icon: "vlasyStrih",
+    header: "Vlasy"
+  },
+
+  {
+    id: 2,
+    icon: "vousyUprava",
+    header: "Úprava vousů"
+  },
+
+  {
+    id: 3,
+    icon: "vlasyStrihaVousyUprava",
+    header: "Kombinace"
+  },
+
+  {
+    id: 4,
+    icon: "fajnsmekr",
+    header: "Extravagant"
+  },
+
+  {
+    id: 5,
+    icon: "vlasyStrihVousyHotTowel",
+    header: "Přídavky"
+  },
+]
+
+
 export const services = [
     {
       id: 1,
-      icon: "vlasyStrih",
-      time: "45",
-      header: "Střih vlasů",
-      cena: "450",
-      text: "Střih vlasů, úprava obočí a kontur, mytí vlasů, opálení uší, styling a kolínská dle výběru. Nápoje samozřejmostí (Coca Cola, voda, káva, čaj)."
-      
+      categoryId: "1", 
+      nazev: "Vlasy jednou velikostí",
+      cena: "240",      
     },
     {
       id: 2,
+      categoryId: "1", 
+      nazev: "Klasický střih",
+      cena: "360",      
+    },
+    {
+      id: 3,
+      categoryId: "1", 
+      nazev: "Buzzcut (vršek strojkem, strany skin fade)",
+      cena: "430",      
+    },
+    {
+      id: 4,
+      categoryId: "1", 
+      nazev: "Premium střih (skin fade)",
+      cena: "450",      
+    },
+    {
+      id: 5,
+      categoryId: "1", 
+      nazev: "Vlasy dlouhé",
+      cena: "450",      
+    },
+    {
+      id: 6,
+      categoryId: "1", 
+      nazev: "Premium střih (skin fade)",
+      cena: "450",      
+    },
+    {
+      id: 7,
+      categoryId: "1", 
+      nazev: "Premium střih (skin fade)",
+      cena: "450",      
+    },
+
+
+
+
+
+
+
+
+
+
+    {
+      id: 5,
       icon: "vousyUprava",
       time: "30",
-      header: "Úprava vousů strojkem",
+      header: "Úpra",
       cena: "300",
       text: "Úprava vousů strojkem, ošetření vousů balzámem či olejem na vousy, úprava obočí a kontur, opálení uší, kolínská dle výběru. Nápoje samozřejmostí (Coca Cola, voda, káva, čaj)."
     },
     {
-      id: 3,
+      id: 5,
       icon: "vlasyStrihaVousyUprava",
       time: "60",
       header: "Střih vlasů + vousy strojkem",
@@ -25,7 +101,7 @@ export const services = [
       text: "Střih vlasů, úprava obočí a kontur, mytí vlasů, opálení uší, styling a kolínská dle výběru. Nápoje samozřejmostí (Coca Cola, voda, káva, čaj)."
     },
     {
-      id: 4,
+      id: 6,
       icon: "vlasyStrihVousyHotTowel",
       time: "75",
       header: "Střih vlasů + úprava vousů (Hot towel)",

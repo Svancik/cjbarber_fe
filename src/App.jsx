@@ -6,12 +6,12 @@ import { Home } from "./pages/Home";
 /*
 TODO:
 
-- ODKAZY Z NAVBAR na sekce
 - Rezervační systém
 - Předělání Služeb
-- Galerie při kliknutí na fotku 
-
-
+- Mobilní zobrazení
+- Komprimace obrázků a videí
+- Doplnení textu "Kdo jsem"
+- Přidání background videa do Slideru
 */
 function App() {
   return (
