@@ -32,6 +32,7 @@ export const servicesCategories = [
 
 
 export const services = [
+  //VLASY
     {
       id: 1,
       categoryId: "1", 
@@ -62,18 +63,174 @@ export const services = [
       nazev: "Vlasy dlouhé",
       cena: "450",      
     },
+
+
+
+    //ÚPRAVA VOUSŮ
     {
       id: 6,
-      categoryId: "1", 
-      nazev: "Premium střih (skin fade)",
-      cena: "450",      
+      categoryId: "2", 
+      nazev: "Vousy krátké",
+      cena: "350",      
     },
     {
       id: 7,
-      categoryId: "1", 
-      nazev: "Premium střih (skin fade)",
-      cena: "450",      
+      categoryId: "2", 
+      nazev: "Vousy dlouhé",
+      cena: "380",     
     },
+    {
+      id: 8,
+      categoryId: "2", 
+      nazev: "Holení dohladka",
+      cena: "450",     
+    },
+    {
+      id: 9,
+      categoryId: "2", 
+      nazev: "V kombinaci sleva",
+      cena: "50",     
+    },
+
+
+    //KOMBINACE
+
+    {
+      id: 10,
+      categoryId: "3", 
+      nazev: "Střih strojkem (1 velikost) + vousy krátké",
+      cena: "490",      
+    },
+    {
+      id: 11,
+      categoryId: "3", 
+      nazev: "Střih strojkem (1 velikost) + vousy dlouhé",
+      cena: "640",     
+    },
+    {
+      id: 12,
+      categoryId: "3", 
+      nazev: "Klasický střih + vousy krátké",
+      cena: "530",     
+    },
+    {
+      id: 13,
+      categoryId: "3", 
+      nazev: "Klasický střih + vousy dlouhé",
+      cena: "650",     
+    },
+    {
+      id: 14,
+      categoryId: "3", 
+      nazev: "Klasický střih + vousy dlouhé",
+      cena: "650",     
+    },
+    {
+      id: 15,
+      categoryId: "3", 
+      nazev: "Premium střih (skin fade) + vousy krátké",
+      cena: "650",     
+    },
+    {
+      id: 16,
+      categoryId: "3", 
+      nazev: "Premium střih (skin fade) + vousy dlouhé",
+      cena: "650",     
+    },
+    {
+      id: 17,
+      categoryId: "3", 
+      nazev: "Buzzcut + vousy krátké",
+      cena: "680",     
+    },
+    {
+      id: 18,
+      categoryId: "3", 
+      nazev: "Buzzcut + vousy dlouhé",
+      cena: "730",     
+    },
+    {
+      id: 19,
+      categoryId: "3", 
+      nazev: "Vlasy dlouhé + vousy krátké",
+      cena: "800",     
+    },
+    {
+      id: 20,
+      categoryId: "3", 
+      nazev: "Vlasy dlouhé + vousy dlouhé",
+      cena: "880",     
+    },
+
+
+
+    //EXTRAVAGANT
+    {
+      id: 21,
+      categoryId: "4",
+      nazev: "Vlasy, vousy/holení do hladka, péče o pleť, styling, balzám na vousy, foukání, káva",
+      cena: "1 700"
+    },
+
+
+
+    //PŘÍDAVKY
+    {
+      id: 22,
+      categoryId: "5", 
+      nazev: "Péče o pleť",
+      cena: "960",     
+    },
+    {
+      id: 23,
+      categoryId: "5", 
+      nazev: "Barvení vousů",
+      cena: "200 - 250",     
+    },
+    {
+      id: 24,
+      categoryId: "5", 
+      nazev: "Hair Tattoo",
+      cena: "50 - 100",     
+    },
+    {
+      id: 25,
+      categoryId: "5", 
+      nazev: "Černá maska",
+      cena: "100",     
+    },
+    {
+      id: 26,
+      categoryId: "5", 
+      nazev: "Depilace voskem",
+      cena: "60",     
+    },
+    {
+      id: 26,
+      categoryId: "5", 
+      nazev: "Depilace očí",
+      cena: "100",     
+    },
+    {
+      id: 27,
+      categoryId: "5", 
+      nazev: "Mytí hlavy",
+      cena: "50",     
+    },
+    {
+      id: 28,
+      categoryId: "5", 
+      nazev: "Styling",
+      cena: "50",     
+    },
+    {
+      id: 29,
+      categoryId: "5", 
+      nazev: "Foukání vousů + balzám",
+      cena: "50",     
+    },
+
+
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { services } from "../../barberData";
 import "./services.css";
-import { ServiceItem } from "../serviceItem/ServiceItem";
+import { ServiceCategoryItem } from "../serviceItem/ServiceCategoryItem";
+import { servicesCategories } from "./../../barberData";
 
 export const Services = () => {
   return (
@@ -9,9 +9,17 @@ export const Services = () => {
       <div className="services">
         <h1 className="sluzby">SLUŽBY A CENY</h1>
         <hr className="headerUnderline" />
-        {services.map((service) => (
-          <ServiceItem service={service} />
+
+        {servicesCategories.map((serviceCategory) => (
+          <ServiceCategoryItem
+            serviceCategory={serviceCategory}
+            key={serviceCategory.id}
+          />
         ))}
+
+        {/* {services.map((service) => (
+          <ServiceItem service={service} />
+        ))} */}
       </div>
     </div>
   );

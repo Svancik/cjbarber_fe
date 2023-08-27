@@ -1,0 +1,46 @@
+import React from "react";
+import "./serviceCategoryItem.css";
+import { services } from "../../barberData";
+
+export const ServiceCategoryItem = ({ serviceCategory }) => {
+  let servicesFiltered = services.filter(
+    (service) => service.categoryId == serviceCategory.id
+  );
+
+  console.log(servicesFiltered);
+
+  return (
+    <div className="block">
+      <div className="serviceWrapper">
+        <div className={serviceCategory.id % 2 === 1 ? "img " : "img"}>
+          <img
+            className="icon"
+            src={require(`../../media/vector/${serviceCategory.icon}.png`)}
+            alt=""
+          />{" "}
+        </div>
+
+        <div className="desc">
+          <h5>{serviceCategory.header}</h5>
+          <ul>
+            {servicesFiltered.map((service) => (
+              <>
+                {" "}
+                <li key={service.id}>
+                  {service.nazev} <span>{service.cena}</span>
+                </li>{" "}
+              </>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {serviceCategory.id !== 5 && (
+        <hr
+          className={
+            serviceCategory.id % 2 === 1 ? "thinHR rightContent" : "thinHR"
+          }
+        />
+      )}
+    </div>
+  );
+};
