@@ -27,7 +27,8 @@ export const ServiceCategoryItem = ({ serviceCategory }) => {
               <>
                 {" "}
                 <li key={service.id}>
-                  {service.nazev} <span>{service.cena}</span>
+                  <span className="serviceName">{service.nazev}</span>{" "}
+                  <span className="servicePrice">{service.cena}</span>
                 </li>{" "}
               </>
             ))}

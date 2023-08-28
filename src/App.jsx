@@ -2,12 +2,11 @@ import "./App.css";
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/Home/Home";
 /*
 TODO:
 
 - Rezervační systém
-- Předělání Služeb
 - Mobilní zobrazení
 - Komprimace obrázků a videí
 - Doplnení textu "Kdo jsem"
