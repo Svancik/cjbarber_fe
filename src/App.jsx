@@ -3,6 +3,7 @@ import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
+import { Reservation } from "./pages/Reservation/Reservation";
 /*
 TODO:
 
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/reservation" element={<Reservation />} />
         </Routes>
       </BrowserRouter>
     </div>
