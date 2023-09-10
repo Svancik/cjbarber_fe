@@ -3,6 +3,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import "./sliderInfo.css";
+import { Link } from "react-router-dom";
 
 export const SliderInfo = () => {
   return (
@@ -64,7 +65,12 @@ export const SliderInfo = () => {
           </table>
         </div>
 
-        <button className="reservation">Online Rezervace</button>
+        <button className="reservation">
+          {" "}
+          <Link className="link" to="/rezervace">
+            Online Rezervace
+          </Link>
+        </button>
       </div>
     </div>
   );

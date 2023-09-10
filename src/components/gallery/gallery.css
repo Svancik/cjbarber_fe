@@ -150,7 +150,8 @@
 }
 
 .arrow:hover{
-    color: darkgray;    
+    color: goldenrod;    
+
 }
 
 .close{
@@ -158,14 +159,15 @@
     top: 35px;
     right: 25px;
     font-size: 85px;
-    color: rgba(0, 0, 0, 0.724);
+   color: red;
     cursor: pointer;
     width: 50px;
     height: 50px;
 }
 
 .close:hover{
-    color: rgb(173, 29, 29);
+  color: rgb(173, 29, 29);
+
 }
 
 

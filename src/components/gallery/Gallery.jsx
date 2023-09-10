@@ -115,7 +115,7 @@ export const Gallery = ({ col3 }) => {
         onClick={() => setViewFullGallery(!viewFullGallery)}
       >
         {viewFullGallery ? (
-          <KeyboardArrowUpIcon sx={{ width: "100%", height: "100%" }} />
+          <KeyboardArrowUpIcon sx={{ width: "100%", height: "100%", }} />
         ) : (
           <KeyboardArrowDownIcon sx={{ width: "100%", height: "100%" }} />
         )}
