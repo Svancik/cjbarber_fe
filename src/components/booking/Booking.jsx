@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
+import { Calendar } from "../calendar/Calendar";
 
 export const Booking = () => {
-
-        /*
+  /*
         TODO:         
         
         Načerapt inspiraci z booking stránky.
@@ -16,8 +16,9 @@ export const Booking = () => {
 
         */
 
-
   return (
-    <div>Booking</div>
-  )
-}
+    <div className="bookingWrapper">
+      
+    </div>
+  );
+};

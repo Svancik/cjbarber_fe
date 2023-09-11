@@ -10,20 +10,20 @@ export const Navbar = () => {
         <img src={require("../../media/logoVector.png")} alt="" />
       </div>
       <div className="right">
-        <Link to="/#uvod">
+        <Link className="link" to="/#uvod">
           <span>Úvod</span>
         </Link>
-        <Link to="/#sluzby">
+        <Link className="link" to="/#sluzby">
           <span>Služby</span>
         </Link>
-        <Link to="/#kdojsem">
-        <span>Kdo jsem</span>
+        <Link className="link" to="/#kdojsem">
+          <span>Kdo jsem</span>
         </Link>
-        <Link to="/#galerie">
-        <span>Galerie</span>
+        <Link className="link" to="/#galerie">
+          <span>Galerie</span>
         </Link>
-        <Link to="/#kontakt">
-        <span>Kontakt</span>
+        <Link className="link" to="/#kontakt">
+          <span>Kontakt</span>
         </Link>
       </div>
     </div>
