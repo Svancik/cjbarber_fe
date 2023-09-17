@@ -15,7 +15,8 @@ export const Calendar = () => {
   const [value, setValue] = useState(dayjs("2023-09-18"));
   console.log(value);
   return (
-    <div className="calendarWrapper">
+    <div className="calendarWrapper reservationBlock">
+      <h2 className="reservationTitle">2) Zvolte požadované datum </h2>
       <div className="datePicker">
         <LocalizationProvider
           dateAdapter={AdapterDayjs}

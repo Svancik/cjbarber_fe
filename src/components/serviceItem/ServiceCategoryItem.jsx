@@ -6,9 +6,6 @@ export const ServiceCategoryItem = ({ serviceCategory }) => {
   let servicesFiltered = services.filter(
     (service) => service.categoryId == serviceCategory.id
   );
-
-  console.log(servicesFiltered);
-
   return (
     <div className="block">
       <div className="serviceWrapper">

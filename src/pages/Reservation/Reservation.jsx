@@ -9,8 +9,8 @@ export const Reservation = () => {
   return (
     <div className="reservationWrapper">
       <Navbar />
-      <Calendar />
       <Booking />
+      <Calendar />
       <Footer />
     </div>
   );

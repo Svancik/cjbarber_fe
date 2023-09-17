@@ -62,4 +62,12 @@ h1, h2{
   text-decoration: none;
   color: inherit;
 }
+.reservationTitle{
+  font-size: 26px;
+  font-weight: 500;
+}
 
+.reservationBlock{
+  margin: auto;
+  width: 60vw;
+}

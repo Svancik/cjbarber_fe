@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./slider.css";
-import { reality } from "./../../data";
 import { SliderInfo } from "../sliderInfo/SliderInfo";
 
 //TODO: DOKONČIT SLIDER responsivní zobrazení

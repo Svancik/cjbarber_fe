@@ -1,0 +1,6 @@
+.selectServiceWrapper{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border-color: red;
+}

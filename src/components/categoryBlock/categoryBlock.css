@@ -1,0 +1,14 @@
+.categoryBlock{
+    font-weight: 500;
+    font-size: 18px;
+    width: 220px;
+    padding: 2rem 1rem;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.759);
+    color: gold;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gold;
+    margin-right: 20px;
+}
+

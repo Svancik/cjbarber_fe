@@ -1,5 +1,7 @@
 import React from "react";
-import { Calendar } from "../calendar/Calendar";
+import { services, servicesCategories } from "../../barberData";
+import "./booking.css";
+import { SelectService } from "../selectService/SelectService";
 
 export const Booking = () => {
   /*
@@ -17,8 +19,12 @@ export const Booking = () => {
         */
 
   return (
-    <div className="bookingWrapper">
-      
+    <div className="bookingWrapper reservationBlock">
+      <h2 className="reservationTitle">1) Zvolte požadovanou službu </h2>
+      <SelectService
+        listOfServices={services}
+        listOfServicesCategories={servicesCategories}
+      />
     </div>
   );
 };
