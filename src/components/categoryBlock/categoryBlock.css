@@ -1,14 +1,21 @@
 .categoryBlock{
     font-weight: 500;
-    font-size: 18px;
-    width: 220px;
-    padding: 2rem 1rem;
+    font-size: 20px;
+    width: 12.5%;
+    padding: 1.5rem 0.75rem;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.759);
-    color: gold;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
     flex-direction: column;
     text-align: center;
     border: 1px solid gold;
-    margin-right: 20px;
+    transition: all 0.5s ease;
+  
+}
+
+.categoryBlock:hover{
+color: gold;
+background-color: rgba(0, 0, 0, 0.8);
+cursor: pointer;
 }
 

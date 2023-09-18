@@ -61,7 +61,13 @@ h1, h2{
 .link{
   text-decoration: none;
   color: inherit;
+  
 }
+
+.link:hover{
+  color: black;
+}
+
 .reservationTitle{
   font-size: 26px;
   font-weight: 500;

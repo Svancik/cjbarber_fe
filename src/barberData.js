@@ -28,7 +28,8 @@ export const servicesCategories = [
   {
     id: 5,
     icon: "vlasyStrihVousyHotTowel",
-    header: "Přídavky"
+    header: "Přídavky",
+    isAdditional: true
   },
 ]
 

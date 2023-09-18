@@ -13,6 +13,9 @@ export const Navbar = () => {
         <Link className="link" to="/#uvod">
           <span>Úvod</span>
         </Link>
+        <Link className="link" to="/rezervace">
+          <span>Rezervace</span>
+        </Link>
         <Link className="link" to="/#sluzby">
           <span>Služby</span>
         </Link>

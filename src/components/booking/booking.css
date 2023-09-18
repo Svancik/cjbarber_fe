@@ -1,9 +1,36 @@
 .bookingWrapper{
     padding-top: 10vh;
+    margin-bottom: 10rem;
     height: 10vh;
  
 }
 
-.bookingWrapper h2{
-  
+
+
+.categorySelectWrapper{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 35px;
+   
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    float: center;
+    
+    justify-content: center;
+
+}
+
+.mainSelect{
+    height: 0vh;
+    margin-bottom: 400px;    
+}
+
+.additionalSelect{
+    margin-left: 80px;
+    margin-bottom: 100px;
 }
