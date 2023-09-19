@@ -2,8 +2,7 @@ export const servicesCategories = [
   {
     id: 1,
     icon: "vlasyStrih",
-    header: "Vlasy",
-  
+    header: "Vlasy",  
   },
 
   {
@@ -96,12 +95,7 @@ export const services = [
       cena: "450",  
       delkaTrvani: 40   
     },
-    {
-      id: 9,
-      categoryId: "2", 
-      nazev: "V kombinaci sleva",
-      cena: "50",     
-    },
+
 
 
     //KOMBINACE

@@ -1,10 +1,18 @@
 import React from "react";
 import "./categoryBlock.css";
 
-export const CategoryBlock = ({ serviceCategory, setSelectedCategory }) => {
+export const CategoryBlock = ({
+  serviceCategory,
+  setSelectedCategory,
+  selectedCategoryID,
+}) => {
   return (
     <div
-      className="categoryBlock"
+      className={
+        serviceCategory.id === selectedCategoryID
+          ? "categoryBlock categoryBlockSelected"
+          : "categoryBlock"
+      }
       onClick={() => setSelectedCategory(serviceCategory)}
     >
       {serviceCategory.header}

@@ -9,8 +9,14 @@
     flex-direction: column;
     text-align: center;
     border: 1px solid gold;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;  
+}
+
+.categoryBlockSelected{
+    color: gold;
+    background-color: rgba(0, 0, 0, 0.8);
   
+
 }
 
 .categoryBlock:hover{
@@ -19,3 +25,12 @@ background-color: rgba(0, 0, 0, 0.8);
 cursor: pointer;
 }
 
+
+.additionalService{
+    display: flex;
+    margin-top: 10px;
+}
+
+.additionalService span{
+    margin-left: 7.5px;
+}
