@@ -28,7 +28,7 @@ export const Footer = () => {
 
       <div className="footerRow">
         <FacebookIcon className="mui" />
-        <span className="bold">facebook</span>
+        <span className="bold">Facebook</span>
       </div>
     </div>
   );

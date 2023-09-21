@@ -1,8 +1,48 @@
 .calendarWrapper{
-    margin-top: 75px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .datePicker{
     width: 500px;
-    margin: auto;
+    margin-top: 10px;
+}
+
+.timeBlocks{
+float: right;  
+  display: grid;   
+    grid-gap: 15px;
+    width: 40%;   
+    grid-template-rows: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 100px;
+  margin-left: 100px;
+  line-height:50px;
+  justify-content: right;
+  row-gap: 1px;
+  height: 250px;
+
+}
+
+.timeBlock{
+    float: left;
+    width: 120px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    border: 1px solid navy;
+    font-size: 18px;
+    font-weight: 500;
+    color: navy;  
+    transition: all 0.5s ease-in-out;
+}
+
+.timeBlock:hover{
+    background-color: navy;
+    color: white;
+    cursor: pointer;
 }

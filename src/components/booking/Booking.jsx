@@ -22,7 +22,10 @@ export const Booking = ({ setSelectedService, selectedService }) => {
         *** Zvážit strap.io databáze ***
 
 
-        DODĚLAT UKLÁDÁNÍ PŘÍDAVKŮ DO STATE - Pole vybraných přídavků
+        DODĚLAT SLIDER => ZVOLÍM SLUŽBU POKRAČUJU NA DALŠÍ KROK
+
+        Volba termínu - vytvořit div časové bloky (10:00 - 11:00) dle nezabookovaného místa v databázi a dle otevíracích hodin a dle délky
+
 
         */
 
@@ -32,17 +35,17 @@ export const Booking = ({ setSelectedService, selectedService }) => {
     header: "Vlasy",
   });
 
-  const [total, setTotal] = useState(0);
-  console.log("Cena celkem: ", total);
+  const [additionalTotal, setAdditionalTotal] = useState(0);
+  console.log("Cena celkem: ", additionalTotal + selectedService.cena);
 
   const servicesOfSelectedCategory = services.filter(
-    (service) => service.categoryId == selectedCategory.id
+    (service) => service.categoryId === selectedCategory.id
   );
 
   console.log(servicesOfSelectedCategory);
 
   const additionalServices = services.filter(
-    (service) => service.categoryId === "5"
+    (service) => service.categoryId === 5
   );
 
   const [checkedState, setCheckedState] = useState(
@@ -66,7 +69,7 @@ export const Booking = ({ setSelectedService, selectedService }) => {
       0
     );
 
-    setTotal(totalPrice);
+    setAdditionalTotal(totalPrice);
   };
 
   useEffect(() => {
@@ -75,7 +78,7 @@ export const Booking = ({ setSelectedService, selectedService }) => {
 
   return (
     <div className="bookingWrapper reservationBlock">
-      <h2 className="reservationTitle">1) Zvolte požadovanou službu </h2>
+      <h2 className="reservationTitle">Zvolte službu </h2>
 
       <div className="mainSelect">
         <div className="categorySelectWrapper">
@@ -144,12 +147,6 @@ export const Booking = ({ setSelectedService, selectedService }) => {
           ))}
         </div>
       </div>
-      {selectedCategory && (
-        <span>Zvolená kategorie: {selectedCategory.header}</span>
-      )}
-
-      <br />
-      <span>Zvolený servis: {selectedService.nazev}</span>
     </div>
   );
 };
