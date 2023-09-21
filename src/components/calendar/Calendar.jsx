@@ -12,8 +12,7 @@ import "dayjs/locale/cs";
 import dayjs from "dayjs";
 
 export const Calendar = () => {
-  const [value, setValue] = useState(dayjs("2023-09-18"));
-  console.log(value);
+  const [value, setValue] = useState(dayjs());
   return (
     <div className="calendarWrapper reservationBlock">
       <h2 className="reservationTitle">2) Zvolte požadované datum </h2>

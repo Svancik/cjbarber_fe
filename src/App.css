@@ -69,11 +69,11 @@ h1, h2{
 }
 
 .reservationTitle{
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
 }
 
 .reservationBlock{
   margin: auto;
-  width: 60vw;
+  width: 75vw;
 }

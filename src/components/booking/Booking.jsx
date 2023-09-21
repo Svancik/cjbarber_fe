@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { services, servicesCategories } from "../../barberData";
 import { CategoryBlock } from "./../categoryBlock/CategoryBlock";
 import { useState } from "react";
@@ -22,7 +22,6 @@ export const Booking = ({ setSelectedService, selectedService }) => {
         *** Zvážit strap.io databáze ***
 
 
-        DODĚLAT USEFFECT => se změnou kategorie setSerlectedService("")
         DODĚLAT UKLÁDÁNÍ PŘÍDAVKŮ DO STATE - Pole vybraných přídavků
 
         */
@@ -33,6 +32,9 @@ export const Booking = ({ setSelectedService, selectedService }) => {
     header: "Vlasy",
   });
 
+  const [total, setTotal] = useState(0);
+  console.log("Cena celkem: ", total);
+
   const servicesOfSelectedCategory = services.filter(
     (service) => service.categoryId == selectedCategory.id
   );
@@ -42,6 +44,34 @@ export const Booking = ({ setSelectedService, selectedService }) => {
   const additionalServices = services.filter(
     (service) => service.categoryId === "5"
   );
+
+  const [checkedState, setCheckedState] = useState(
+    new Array(additionalServices.length).fill(false)
+  );
+
+  const handleCheckboxOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+
+    const totalPrice = updatedCheckedState.reduce(
+      (sum, currentState, index) => {
+        if (currentState === true) {
+          return sum + additionalServices[index].cena;
+        }
+        return sum;
+      },
+      0
+    );
+
+    setTotal(totalPrice);
+  };
+
+  useEffect(() => {
+    setSelectedService("s");
+  }, [selectedCategory]);
 
   return (
     <div className="bookingWrapper reservationBlock">
@@ -70,7 +100,8 @@ export const Booking = ({ setSelectedService, selectedService }) => {
                 alt=""
               />
               <h1>
-                {selectedCategory.header} <hr className="headerUnderline" />{" "}
+                {selectedCategory.header}{" "}
+                {/* <hr className="headerUnderline" /> */}
               </h1>
             </div>
           </div>
@@ -87,6 +118,7 @@ export const Booking = ({ setSelectedService, selectedService }) => {
                     control={<Radio />}
                     label={`${service.nazev} - ${service.cena},–`}
                     onClick={() => setSelectedService(service)}
+                    className="formControlLabel"
                   />
                 ))}
               </RadioGroup>
@@ -96,17 +128,21 @@ export const Booking = ({ setSelectedService, selectedService }) => {
       </div>
 
       <div className="additionalSelect">
-        <h3>Přídavky:</h3>
-        <ul>
-          {additionalServices.map((additional) => (
+        <h3>Zvolte extra služby (volitelné):</h3>
+        <div className="checkBoxGrid">
+          {additionalServices.map((additional, index) => (
             <>
               <label className="additionalService">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={() => handleCheckboxOnChange(index)}
+                  checked={checkedState[index]}
+                />
                 <span>{`${additional.nazev} - ${additional.cena},–`}</span>
               </label>
             </>
           ))}
-        </ul>
+        </div>
       </div>
       {selectedCategory && (
         <span>Zvolená kategorie: {selectedCategory.header}</span>

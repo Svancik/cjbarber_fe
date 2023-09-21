@@ -15,8 +15,8 @@ export const Reservation = () => {
         setSelectedService={setSelectedService}
         selectedService={selectedService}
       />
-      {/* <Calendar /> */}
-      {/* <Footer /> */}
+      <Calendar />
+      <Footer />
     </div>
   );
 };

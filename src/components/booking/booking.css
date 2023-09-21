@@ -29,14 +29,25 @@
 
 .mainSelect{
    
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding-bottom: 25px;
     height: 100%;
 }
 
 .additionalSelect{
+    margin-top: -20px;
     margin-left: 80px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;  
+}
+
+.additionalSelect label{
+font-size: 16px;
+font-weight: 400;
+}
+
+
+.additionalSelect h3{
+    font-weight: 500;
 }
 
 .serviceSelectHeader{
@@ -57,6 +68,15 @@
     padding-bottom: 5px;
 }
 
+.checkBoxGrid{
+    display: grid;
+    grid-gap: 0px;
+    width: 80%;
+    margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
 .categoryHeader{
     display: flex;
 }
@@ -65,6 +85,12 @@
     width: 80%;
     text-align: center;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;    
 }
 
+.formControlLabel{
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    
+}
