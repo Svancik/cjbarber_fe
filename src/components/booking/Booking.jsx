@@ -10,7 +10,12 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-export const Booking = ({ setSelectedService, selectedService }) => {
+export const Booking = ({
+  setSelectedService,
+  selectedService,
+  setAdditionalTotal,
+  additionalTotal,
+}) => {
   /*
         TODO:         
         
@@ -26,6 +31,9 @@ export const Booking = ({ setSelectedService, selectedService }) => {
 
         Volba termínu - vytvořit div časové bloky (10:00 - 11:00) dle nezabookovaného místa v databázi a dle otevíracích hodin a dle délky
 
+        Vymyslet jak při zakliknutí checkboxu uložit daný additional service do pole objektů a to předat do Reservation k výpočtu ceny,
+        času a ID pro identifikace
+
 
         */
 
@@ -35,17 +43,18 @@ export const Booking = ({ setSelectedService, selectedService }) => {
     header: "Vlasy",
   });
 
-  const [additionalTotal, setAdditionalTotal] = useState(0);
   console.log("Cena celkem: ", additionalTotal + selectedService.cena);
 
   const servicesOfSelectedCategory = services.filter(
     (service) => service.categoryId === selectedCategory.id
   );
 
-  console.log(servicesOfSelectedCategory);
-
   const additionalServices = services.filter(
     (service) => service.categoryId === 5
+  );
+
+  const [selectedAdditionalServices, setSelectedAdditionalServices] = useState(
+    []
   );
 
   const [checkedState, setCheckedState] = useState(
@@ -73,7 +82,8 @@ export const Booking = ({ setSelectedService, selectedService }) => {
   };
 
   useEffect(() => {
-    setSelectedService("s");
+    setSelectedService("");
+    setAdditionalTotal("");
   }, [selectedCategory]);
 
   return (

@@ -7,6 +7,7 @@ import { Calendar } from "../../components/calendar/Calendar";
 
 export const Reservation = () => {
   const [selectedService, setSelectedService] = useState("");
+  const [additionalTotal, setAdditionalTotal] = useState(0);
 
   return (
     <div className="reservationWrapper">
@@ -14,8 +15,18 @@ export const Reservation = () => {
       <Booking
         setSelectedService={setSelectedService}
         selectedService={selectedService}
+        setAdditionalTotal={setAdditionalTotal}
+        additionalTotal={additionalTotal}
       />
-      <Calendar />
+      {selectedService.id && (
+        <>
+          <Calendar />
+        </>
+      )}
+      {console.log(
+        "vybrana sluzba: ",
+        selectedService.delkaTrvani + additionalTotal
+      )}
       <Footer />
     </div>
   );
