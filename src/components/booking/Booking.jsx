@@ -13,8 +13,10 @@ import {
 export const Booking = ({
   setSelectedService,
   selectedService,
-  setAdditionalTotal,
-  additionalTotal,
+  setServicesTotalPrice,
+  selectedAdditionalServices,
+  setSelectedAdditionalServices,
+  setServicesTotalTime,
 }) => {
   /*
         TODO:         
@@ -43,8 +45,6 @@ export const Booking = ({
     header: "Vlasy",
   });
 
-  console.log("Cena celkem: ", additionalTotal + selectedService.cena);
-
   const servicesOfSelectedCategory = services.filter(
     (service) => service.categoryId === selectedCategory.id
   );
@@ -52,12 +52,6 @@ export const Booking = ({
   const additionalServices = services.filter(
     (service) => service.categoryId === 5
   );
-
-  const [selectedAdditionalServices, setSelectedAdditionalServices] = useState(
-    []
-  );
-
-  console.log("služby: ", selectedAdditionalServices);
 
   const [checkedState, setCheckedState] = useState(
     new Array(additionalServices.length).fill(false)
@@ -80,15 +74,17 @@ export const Booking = ({
       0
     );
 
-    // if (
-    //   selectedAdditionalServices.filter((s) => s.id === additional.id)
-    //     .length === 0
-    // ) {
-    //   setSelectedAdditionalServices([
-    //     ...selectedAdditionalServices,
-    //     additional,
-    //   ]);
-    // }
+    const totalTime = updatedCheckedState.reduce((sum, currentState, index) => {
+      if (currentState === true) {
+        return sum + additionalServices[index].delkaTrvani;
+      }
+      return sum;
+    }, 0);
+
+    /* 
+     Níže zkontrolujeme zda ve state vyfiltrujeme pole o objektech jejich id je shodné s id služby vybrané přes checkbox - pokud není - length=0
+     Pokud je shodné tak odfiltrujeme tuto službuze state - protože uživatel klikl 2x na checkbox a tím to odchecknul = musíme odebrat ze state.
+     */
 
     selectedAdditionalServices.filter((s) => s.id === additional.id).length ===
     0
@@ -102,12 +98,15 @@ export const Booking = ({
           )
         );
 
-    setAdditionalTotal(totalPrice);
+    setServicesTotalPrice(totalPrice);
+    setServicesTotalTime(totalTime);
   };
 
   useEffect(() => {
     setSelectedService("");
-    setAdditionalTotal("");
+    setServicesTotalPrice("");
+    setSelectedAdditionalServices([]);
+    setCheckedState(new Array(additionalServices.length).fill(false));
   }, [selectedCategory]);
 
   return (
@@ -171,6 +170,7 @@ export const Booking = ({
             <>
               <label className="additionalService">
                 <input
+                  disabled={!selectedService}
                   type="checkbox"
                   onChange={() => handleCheckboxOnChange(index, additional)}
                   checked={checkedState[index]}
