@@ -57,11 +57,13 @@ export const Booking = ({
     []
   );
 
+  console.log("služby: ", selectedAdditionalServices);
+
   const [checkedState, setCheckedState] = useState(
     new Array(additionalServices.length).fill(false)
   );
 
-  const handleCheckboxOnChange = (position) => {
+  const handleCheckboxOnChange = (position, additional) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
@@ -77,6 +79,28 @@ export const Booking = ({
       },
       0
     );
+
+    // if (
+    //   selectedAdditionalServices.filter((s) => s.id === additional.id)
+    //     .length === 0
+    // ) {
+    //   setSelectedAdditionalServices([
+    //     ...selectedAdditionalServices,
+    //     additional,
+    //   ]);
+    // }
+
+    selectedAdditionalServices.filter((s) => s.id === additional.id).length ===
+    0
+      ? setSelectedAdditionalServices([
+          ...selectedAdditionalServices,
+          additional,
+        ])
+      : setSelectedAdditionalServices(
+          selectedAdditionalServices.filter(
+            (service) => service.id !== additional.id
+          )
+        );
 
     setAdditionalTotal(totalPrice);
   };
@@ -148,7 +172,7 @@ export const Booking = ({
               <label className="additionalService">
                 <input
                   type="checkbox"
-                  onChange={() => handleCheckboxOnChange(index)}
+                  onChange={() => handleCheckboxOnChange(index, additional)}
                   checked={checkedState[index]}
                 />
                 <span>{`${additional.nazev} - ${additional.cena},–`}</span>
