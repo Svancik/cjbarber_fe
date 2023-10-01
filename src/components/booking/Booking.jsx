@@ -111,7 +111,7 @@ export const Booking = ({
 
   return (
     <div className="bookingWrapper reservationBlock">
-      <h2 className="reservationTitle">Zvolte službu </h2>
+      <h2 className="reservationTitle">1) Zvolte službu </h2>
 
       <div className="mainSelect">
         <div className="categorySelectWrapper">

@@ -25,7 +25,7 @@ export const Calendar = ({ setSelectedDateTime }) => {
   console.log("kalendar", date.$d.toLocaleDateString());
   return (
     <div className="reservationBlock">
-      <h2 className="reservationTitle">Objednejte se na termín </h2>
+      <h2 className="reservationTitle">2) Zvolte termín </h2>
 
       <div className="calendarWrapper">
         <div className="datePicker">

@@ -5,6 +5,7 @@ import { Booking } from "../../components/booking/Booking";
 import { Footer } from "./../../components/footer/Footer";
 import { Calendar } from "../../components/calendar/Calendar";
 import { OverView } from "./../../components/overView/OverView";
+import { ClientInfo } from "../../components/clientInfo/ClientInfo";
 
 export const Reservation = () => {
   const [selectedService, setSelectedService] = useState(false);
@@ -14,6 +15,7 @@ export const Reservation = () => {
   const [selectedDateTime, setSelectedDateTime] = useState("");
   const [servicesTotalPrice, setServicesTotalPrice] = useState(0);
   const [servicesTotalTime, setServicesTotalTime] = useState(0);
+  const [cientInfo, setClientInfo] = useState({});
 
   return (
     <div className="reservationWrapper">
@@ -32,6 +34,7 @@ export const Reservation = () => {
         </>
       )} */}
       <Calendar setSelectedDateTime={setSelectedDateTime} />
+      <ClientInfo setClientInfo={setClientInfo} />
       <OverView
         selectedDateTime={selectedDateTime}
         servicesTotalPrice={servicesTotalPrice}

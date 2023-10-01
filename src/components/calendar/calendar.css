@@ -1,5 +1,6 @@
 .calendarWrapper{
     margin-top: 5px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     width: 100%;
