@@ -8,42 +8,25 @@ export const ClientInfo = () => {
     <div className="reservationBlock">
       <h2 className="reservationTitle">3) Zadejte kontaktní údaje </h2>
       <div className="formWrapper">
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="">
-              Jméno a Přijmení
-            </span>
-          </div>
-          <input type="text" className="form-control" />
-          <input type="text" className="form-control" />
+        <div className="card">
+          <h2>Jméno a příjmení</h2>
+          <label className="input">
+            <input className="input__field" type="text" placeholder=" " />
+          </label>
         </div>
 
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Email
-            </span>
-          </div>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="@"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
+        <div className="card">
+          <h2>Email</h2>
+          <label className="input">
+            <input className="input__field" type="text" placeholder="@" />
+          </label>
         </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">
-              Telefonní číslo (+420)
-            </span>
-          </div>
-          <input
-            type="number"
-            class="form-control"
-            aria-describedby="basic-addon1"
-          />
+        <div className="card">
+          <h2>Telefonní číslo (+420)</h2>
+          <label className="input">
+            <input className="input__field" type="text" placeholder="@" />
+          </label>
         </div>
       </div>
     </div>
