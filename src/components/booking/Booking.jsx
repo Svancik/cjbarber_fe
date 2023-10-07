@@ -21,20 +21,20 @@ export const Booking = ({
   /*
         TODO:         
         
-        Načerapt inspiraci z booking stránky.
+          a) VERIFIKACE INPUTU jména a příjmení
+            a2) DOPLNIT SOUHLAS O PLACENÍ POKUTY
+          b) VERIFIKACE ZVOLENÝCH DALŠÍCH KROKŮ VYŘEŠIT SKRYTÍM DIV DOKUD STATE === vyplněno
+          c) NAPOJENÍ NA STRAP.IO
+          d) ZOBRAZENÍ DAT V TABULCE NOVÁ STRÁNAKA - NÁVŠTĚVA = ŘÁDEK - CRUD OPERACE
+            - Inspirace ADMIN DASHBOARD (Netflix má myslim i napojení na databázi)
+          e) MOBILNÍ ZOBRAZENÍ
+          f) JAK SE SAMEM ZAŘÍDIT ABY KLIENT DOSTAL INFO O REGISTRACI?
 
 
-        Krok 3 - sečíst délku procedůr a cenu (když zvolím kombinaci - zamezit možnost volby vlasy nebo vousy)
-        Krok 4 - rezervovat termín a přidat čas a datum do databáze unavailable date
         *** Zvážit strap.io databáze ***
 
 
-        DODĚLAT SLIDER => ZVOLÍM SLUŽBU POKRAČUJU NA DALŠÍ KROK
 
-        Volba termínu - vytvořit div časové bloky (10:00 - 11:00) dle nezabookovaného místa v databázi a dle otevíracích hodin a dle délky
-
-        Vymyslet jak při zakliknutí checkboxu uložit daný additional service do pole objektů a to předat do Reservation k výpočtu ceny,
-        času a ID pro identifikace
 
 
         */

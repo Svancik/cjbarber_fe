@@ -1,11 +1,11 @@
 .formWrapper{
     display: flex;
     flex-direction: row;
-    margin-top: 25px;
+    margin-top: 0px;
     margin-left: 50px;
-    width: 95%;
+    width: 85%;
     margin-bottom: 50px;
-    gap: 50px;
+    gap: 40px;
 }
 
 .formWrapper .card{
@@ -16,7 +16,14 @@
     width: 80%;
 }
 
-@import url('https://rsms.me/inter/inter.css');
+.input__field
+{
+  height: 20px;
+  font-size: 16px;
+  padding: 4px;
+  margin-left: 6px;
+}
+
 
 :root {
   --color-light: white;
@@ -30,19 +37,18 @@
   --size-bezel: .5rem;
   --size-radius: 4px;
   
-  line-height: 1.4;
   
   font-family: 'Inter', sans-serif;
   font-size: calc(.6rem + .4vw);
   color: var(--color-text);
   background: var(--color-background);
   font-weight: 300;
-  padding: 0 calc(var(--size-bezel) * 3);
 }
 
 .formWrapper .card h1, h2, h3 {
-  font-weight: 900;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
 mark {
@@ -53,12 +59,13 @@ mark {
 }
 
 .card {
-  background: var(--color-background);
+  background: white;
+  color: black;
   padding: calc(4 * var(--size-bezel));
   margin-top: calc(4 * var(--size-bezel));
   border-radius: var(--size-radius);
-  border: 3px solid var(--color-shadow, currentColor);
-  box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+  border: 3px solid black;
+  box-shadow: .5rem .5rem 0 black;
   
   &--inverted {
     --color-background: var(--color-dark);
@@ -83,8 +90,9 @@ mark {
   padding: 1rem;
 }
 
-.input {
+.card .input {
   position: relative;
+  height: 25px;
   
   &__label {
     position: absolute;

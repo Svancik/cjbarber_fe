@@ -102,7 +102,7 @@ export const Gallery = ({ col3 }) => {
               )}
             </div>
             <ArrowForwardIosIcon
-              className="arrow mui"
+              className="arrow"
               onClick={() => handleMove("r")}
               sx={{ height: "85px", width: "85px" }}
             />
@@ -115,9 +115,9 @@ export const Gallery = ({ col3 }) => {
         onClick={() => setViewFullGallery(!viewFullGallery)}
       >
         {viewFullGallery ? (
-          <KeyboardArrowUpIcon sx={{ width: "100%", height: "100%", }} />
+          <KeyboardArrowUpIcon sx={{ width: "32px", height: "32px" }} />
         ) : (
-          <KeyboardArrowDownIcon sx={{ width: "100%", height: "100%" }} />
+          <KeyboardArrowDownIcon sx={{ width: "22px", height: "22px" }} />
         )}
       </button>
     </div>

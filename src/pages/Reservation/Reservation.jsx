@@ -15,7 +15,7 @@ export const Reservation = () => {
   const [selectedDateTime, setSelectedDateTime] = useState("");
   const [servicesTotalPrice, setServicesTotalPrice] = useState(0);
   const [servicesTotalTime, setServicesTotalTime] = useState(0);
-  const [cientInfo, setClientInfo] = useState({});
+  const [clientInfo, setClientInfo] = useState("aa");
 
   return (
     <div className="reservationWrapper">
@@ -34,7 +34,7 @@ export const Reservation = () => {
         </>
       )} */}
       <Calendar setSelectedDateTime={setSelectedDateTime} />
-      <ClientInfo setClientInfo={setClientInfo} />
+      <ClientInfo setClientInfo={setClientInfo} cientInfo={clientInfo} />
       <OverView
         selectedDateTime={selectedDateTime}
         servicesTotalPrice={servicesTotalPrice}
