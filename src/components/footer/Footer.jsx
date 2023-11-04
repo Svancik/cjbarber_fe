@@ -4,6 +4,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneCallbackIcon from "@mui/icons-material/PhoneCallback";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import Instagram from "@mui/icons-material/Instagram";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 
 export const Footer = () => {
   return (
@@ -22,13 +24,24 @@ export const Footer = () => {
       </div>
 
       <div className="footerRow">
-        <EmailIcon className="mui" />
-        <span className="bold">cjs@barbershop.cz</span>
+        <Instagram className="mui" />
+        <a href="https://www.instagram.com/cjs_barbershop_/">
+          <span className="bold">Instagram</span>
+        </a>
       </div>
 
       <div className="footerRow">
         <FacebookIcon className="mui" />
-        <span className="bold">Facebook</span>
+        <a href="https://www.facebook.com/people/CJs-Barbershop/100085528367093/?paipv=0&eav=AfaQY-IKyy9lxJp4JMa3QQEH83xOL7OL-Ginrkw_dCSDRNFQtc_y361ICmOeMMIrY&_rdr">
+          <span className="bold">Facebook</span>
+        </a>
+      </div>
+
+      <div className="footerRow">
+        <MusicNoteIcon className="mui" />
+        <a href="https://www.tiktok.com/@cj_s_barbershop">
+          <span className="bold">Tik Tok</span>
+        </a>
       </div>
     </div>
   );

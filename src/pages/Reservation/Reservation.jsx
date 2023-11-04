@@ -12,10 +12,10 @@ export const Reservation = () => {
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState(
     []
   );
-  const [selectedDateTime, setSelectedDateTime] = useState("");
+  const [selectedDateTime, setSelectedDateTime] = useState(0);
   const [servicesTotalPrice, setServicesTotalPrice] = useState(0);
   const [servicesTotalTime, setServicesTotalTime] = useState(0);
-  const [clientInfo, setClientInfo] = useState("aa");
+  const [clientInfo, setClientInfo] = useState("");
 
   return (
     <div className="reservationWrapper">
@@ -28,13 +28,11 @@ export const Reservation = () => {
         setSelectedAdditionalServices={setSelectedAdditionalServices}
         setServicesTotalTime={setServicesTotalTime}
       />
-      {/* {selectedService.id && (
-        <>
-          <Calendar />
-        </>
-      )} */}
-      <Calendar setSelectedDateTime={setSelectedDateTime} />
+      <>
+        <Calendar setSelectedDateTime={setSelectedDateTime} />
+      </>
       <ClientInfo setClientInfo={setClientInfo} cientInfo={clientInfo} />
+
       <OverView
         selectedDateTime={selectedDateTime}
         servicesTotalPrice={servicesTotalPrice}
@@ -42,6 +40,7 @@ export const Reservation = () => {
         selectedAdditionalServices={selectedAdditionalServices}
         selectedService={selectedService}
       />
+
       <Footer />
     </div>
   );

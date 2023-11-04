@@ -115,9 +115,15 @@ export const Gallery = ({ col3 }) => {
         onClick={() => setViewFullGallery(!viewFullGallery)}
       >
         {viewFullGallery ? (
-          <KeyboardArrowUpIcon sx={{ width: "32px", height: "32px" }} />
+          <KeyboardArrowUpIcon
+            className="mui"
+            sx={{ width: "32px", height: "32px" }}
+          />
         ) : (
-          <KeyboardArrowDownIcon sx={{ width: "22px", height: "22px" }} />
+          <KeyboardArrowDownIcon
+            className="mui"
+            sx={{ width: "32px", height: "32px" }}
+          />
         )}
       </button>
     </div>

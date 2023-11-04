@@ -13,9 +13,10 @@ export const Navbar = () => {
         <Link className="link" to="/#uvod">
           <span>Úvod</span>
         </Link>
-        <Link className="link" to="/rezervace">
+        <a href="https://www.reservio.cz/">
+          {" "}
           <span>Rezervace</span>
-        </Link>
+        </a>
         <Link className="link" to="/#sluzby">
           <span>Služby</span>
         </Link>

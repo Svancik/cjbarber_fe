@@ -83,7 +83,7 @@
     width: 50px;
     text-align: center; 
     background-color: black;
-    padding-top: 4px;
+    padding-top: 7.5px;
     font-weight: 700;
     color: gold;
     border-color: gold;
@@ -96,16 +96,17 @@
     box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.95);
     transition: all 1s ease-out;
     margin-bottom: 15px;
+    padding-left: 10px;
   }
 
     .galleryWrapper .gallerySlider{
         position: fixed;
-        top: 0;
+        top: -70px;
         left: 0;
         width: 100vw;
-        height: 95vh;
+        height: 105vh;
         background-color: rgba(0, 0, 0, 0.452);
-        z-index: 999999;
+        z-index: 999;
         display: flex;
         justify-content: center;   
         align-items: center;
@@ -159,10 +160,13 @@
     top: 35px;
     right: 25px;
     font-size: 85px;
-   color: red;
+   color: black;
+   border: 2px solid white;
+   background-color: white;
+   border-radius: 50%;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 .close:hover{

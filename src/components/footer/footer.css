@@ -2,17 +2,20 @@
     width: 100vw;
     background-color: black;
     color: white;
-    padding: 30px;
     padding-top: 50px;
+    padding-bottom: 15px;
     font-size: 16px;
-    margin-top: 50px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
 }
 
 .footerWrapper .footerRow{
-    display: grid;
-    grid-template-columns: 32px 300px;
-    margin-left: 100px;
+    display: flex;
+    margin-left: 25px;
     margin-bottom: 10px;
+    width: max-content;
 }
 
 .footerRow span{

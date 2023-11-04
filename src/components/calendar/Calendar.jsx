@@ -47,6 +47,7 @@ export const Calendar = ({ setSelectedDateTime }) => {
             />
           </LocalizationProvider>
         </div>
+
         <div className="timeBlocks">
           {times.map((time) => (
             <div

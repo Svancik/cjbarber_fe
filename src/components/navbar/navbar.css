@@ -1,7 +1,7 @@
 .navbar{
     position: fixed;
     background-color: white;
-    z-index: 99999;
+    z-index: 99;
     top: 0px;
     width: 100vw;
     height: 75px;
