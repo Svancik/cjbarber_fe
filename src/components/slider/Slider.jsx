@@ -12,7 +12,7 @@ export const Slider = () => {
     <div className="slider" id="uvod">
       <SliderInfo />
       <div className="container">
-        <img src={require("../../media/slider.jpg")} alt="" />
+        <img src={require("../../media/samBG.jpeg")} alt="" />
       </div>
     </div>
   );

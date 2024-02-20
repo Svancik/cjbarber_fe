@@ -67,7 +67,9 @@ export const SliderInfo = () => {
 
         <button className="reservation">
           {" "}
-          <a href="https://www.reservio.cz/">Online Rezervace</a>
+          <Link className="Link" to="/rezervace">
+            Online Rezervace
+          </Link>
         </button>
       </div>
     </div>

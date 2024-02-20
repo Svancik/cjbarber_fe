@@ -11,6 +11,11 @@
     margin-top: 10px;
 }
 
+.timeBlock.blocked {
+  background-color: grey; /* or any other styling for a blocked time */
+  cursor: not-allowed;
+}
+
 .timeBlocks{
 float: right;  
   display: grid;   

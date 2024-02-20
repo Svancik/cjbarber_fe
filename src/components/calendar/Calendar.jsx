@@ -7,17 +7,55 @@ import { useState } from "react";
 import { csCZ } from "@mui/x-date-pickers";
 import { times } from "../../barberData";
 
-import "dayjs/locale/cs";
-
 import dayjs from "dayjs";
 import { useEffect } from "react";
+import { calendarData } from "../../calenderData";
 
 //
 
 export const Calendar = ({ setSelectedDateTime }) => {
-  const [date, setDate] = useState(dayjs());
-  const [time, setTime] = useState();
+  // const [date, setDate] = useState(dayjs());
+  const [time, setTime] = useState(null);
 
+  const [date, setDate] = useState(dayjs()); // Assuming dayjs is used for date handling
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const isTimeBlocked = (selectedTime) => {
+    // Check if the selected date and time are in the JSON data
+    // Return true if booked, false if available
+    // You need to replace this logic with your actual JSON data comparison
+    return calendarData.some((appointment) => {
+      return (
+        dayjs(appointment.date).isSame(date, "day") &&
+        appointment.time === selectedTime
+      );
+    });
+  };
+
+  const isDateBlocked = (dateToCheck) => {
+    // Check if all time blocks are blocked for the selected date
+    return times.every((time) =>
+      isTimeBlockedForDate(dateToCheck, time.timeBlock)
+    );
+  };
+
+  const isTimeBlockedForDate = (dateToCheck, timeToCheck) => {
+    return calendarData.some((appointment) => {
+      return (
+        dayjs(appointment.date).isSame(dateToCheck, "day") &&
+        appointment.time === timeToCheck
+      );
+    });
+  };
+
+  const renderDisabledDay = (date) => {
+    return (
+      <div className="disabledDay">
+        <span>{date.format("D")}</span>
+      </div>
+    );
+  };
+  
   useEffect(() => {
     setSelectedDateTime(`${date.$d.toLocaleDateString()} ${time}:00`);
   }, [time, date]);
@@ -51,9 +89,11 @@ export const Calendar = ({ setSelectedDateTime }) => {
         <div className="timeBlocks">
           {times.map((time) => (
             <div
-              className="timeBlock"
+              className={`timeBlock ${
+                isTimeBlocked(time.timeBlock) ? "blocked" : ""
+              }`}
               key={time.timeBlock}
-              onClick={() => setTime(time.timeBlock)}
+              onClick={() => setSelectedTime(time.timeBlock)}
             >
               <span>{time.timeBlock}</span>
             </div>
