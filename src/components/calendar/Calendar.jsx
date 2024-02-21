@@ -17,8 +17,17 @@ export const Calendar = ({ setSelectedDateTime }) => {
   // const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(null);
 
-  const [date, setDate] = useState(dayjs()); // Assuming dayjs is used for date handling
+  const [date, setDate] = useState(dayjs().add(2, "days"));
   const [selectedTime, setSelectedTime] = useState(null);
+
+  useEffect(() => {
+    // Check if the initial date is in disabledDates
+    if (shouldDisableDate(disabledDates)(date)) {
+      // If yes, add 1 day to the date
+      console.log("disabledDate: ", disabledDates, " | ", date);
+      setDate(date.add(1, "day"));
+    }
+  }, [date, disabledDates]);
 
   const isTimeBlocked = (selectedTime) => {
     // Check if the selected date and time are in the JSON data
@@ -55,12 +64,24 @@ export const Calendar = ({ setSelectedDateTime }) => {
       </div>
     );
   };
-  
+
+  console.log("kalendar", date.$d.toLocaleDateString());
+
+  const shouldDisableDate = (disabledDates) => (day) => {
+    // Implement your logic to check if the day should be disabled
+    return disabledDates.some((disabledDate) =>
+      dayjs(disabledDate, "MM/DD/YYYY").isSame(day, {
+        dateFormat: "MM/DD/YYYY",
+      })
+    );
+  };
+  const disabledDates = ["02/27/2024", "02/28/2024", "02/29/2024"]; // Example array of disabled dates
+
+  const minDate = dayjs().add(2, "days");
+  const formattedMinDate = minDate.format("MM/DD/YYYY");
   useEffect(() => {
     setSelectedDateTime(`${date.$d.toLocaleDateString()} ${time}:00`);
   }, [time, date]);
-
-  console.log("kalendar", date.$d.toLocaleDateString());
   return (
     <div className="reservationBlock">
       <h2 className="reservationTitle">2) Zvolte termín </h2>
@@ -76,10 +97,13 @@ export const Calendar = ({ setSelectedDateTime }) => {
           >
             <DateCalendar
               label="Date"
-              minDate={dayjs()}
               inputFormat="MM/DD/YYYY"
-              date={date}
+              fixedWeekNumber={6}
+              shouldDisableDate={shouldDisableDate(disabledDates)}
               views={["day", "month"]}
+              date={date}
+              defaultValue={minDate}
+              minDate={minDate}
               onChange={(newValue) => setDate(newValue)}
               showDaysOutsideCurrentMonth
             />
