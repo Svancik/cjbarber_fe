@@ -6,17 +6,16 @@ import "./booking.css";
 import {
   FormControl,
   FormControlLabel,
-  FormLabel,
   Radio,
   RadioGroup,
 } from "@mui/material";
 export const Booking = ({
   setSelectedService,
   selectedService,
-  setServicesTotalPrice,
+  setAdditionalServicesTimeTotal,
   selectedAdditionalServices,
   setSelectedAdditionalServices,
-  setServicesTotalTime,
+  setServicesTotalPrice,
 }) => {
   /*
         TODO:         
@@ -44,6 +43,8 @@ export const Booking = ({
     icon: "vlasyStrih",
     header: "Vlasy",
   });
+
+  console.log(selectedService);
 
   const servicesOfSelectedCategory = services.filter(
     (service) => service.categoryId === selectedCategory.id
@@ -83,7 +84,7 @@ export const Booking = ({
 
     /* 
      Níže zkontrolujeme zda ve state vyfiltrujeme pole o objektech jejich id je shodné s id služby vybrané přes checkbox - pokud není - length=0
-     Pokud je shodné tak odfiltrujeme tuto službuze state - protože uživatel klikl 2x na checkbox a tím to odchecknul = musíme odebrat ze state.
+     Pokud je shodné tak odfiltrujeme tuto službu ze state - protože uživatel klikl 2x na checkbox a tím to odchecknul = musíme odebrat ze state.
      */
 
     selectedAdditionalServices.filter((s) => s.id === additional.id).length ===
@@ -99,7 +100,8 @@ export const Booking = ({
         );
 
     setServicesTotalPrice(totalPrice);
-    setServicesTotalTime(totalTime);
+    setAdditionalServicesTimeTotal(totalTime);
+    console.log("total time: ", totalTime);
   };
 
   useEffect(() => {
@@ -110,8 +112,8 @@ export const Booking = ({
   }, [selectedCategory]);
 
   return (
-    <div className="bookingWrapper reservationBlock">
-      <h2 className="reservationTitle">1) Zvolte službu </h2>
+    <div className="bookingWrapper ">
+      <h2 className="reservationTitle"> Zvolte službu </h2>
 
       <div className="mainSelect">
         <div className="categorySelectWrapper">
@@ -127,58 +129,61 @@ export const Booking = ({
           )}
         </div>
 
-        <div className="serviceSelectWrapper">
-          <div className="serviceSelectHeader">
-            <div className="categoryHeader">
-              <img
-                className="icon"
-                src={require(`../../media/vector/${selectedCategory.icon}.png`)}
-                alt=""
-              />
-              <h1>
-                {selectedCategory.header}{" "}
-                {/* <hr className="headerUnderline" /> */}
-              </h1>
+        <div className="wrapperOfServices">
+          <div className="serviceSelectWrapper">
+            <div className="serviceSelectHeader">
+              <div className="categoryHeader">
+                <img
+                  className="icon"
+                  src={require(`../../media/vector/${selectedCategory.icon}.png`)}
+                  alt=""
+                />
+                <h1>
+                  {selectedCategory.header}{" "}
+                  {/* <hr className="headerUnderline" /> */}
+                </h1>
+              </div>
+            </div>
+
+            <div className="serviceSelectBody">
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  name="radio-buttons-group"
+                >
+                  {servicesOfSelectedCategory.map((service) => (
+                    <FormControlLabel
+                      value={service.id}
+                      control={<Radio />}
+                      label={`${service.nazev} - ${service.cena},–`}
+                      onClick={() => setSelectedService(service)}
+                      className={`formControlLabel ${
+                        selectedService.id == service.id ? "selected" : ""
+                      }`}
+                    />
+                  ))}
+                </RadioGroup>
+              </FormControl>
             </div>
           </div>
-
-          <div className="serviceSelectBody">
-            <FormControl>
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
-              >
-                {servicesOfSelectedCategory.map((service) => (
-                  <FormControlLabel
-                    value={service.id}
-                    control={<Radio />}
-                    label={`${service.nazev} - ${service.cena},–`}
-                    onClick={() => setSelectedService(service)}
-                    className="formControlLabel"
-                  />
-                ))}
-              </RadioGroup>
-            </FormControl>
+          <div className="additionalSelect">
+            <h3>Zvolte extra služby (volitelné):</h3>
+            <div className="checkBoxGrid">
+              {additionalServices.map((additional, index) => (
+                <>
+                  <label className="additionalService">
+                    <input
+                      disabled={!selectedService}
+                      type="checkbox"
+                      onChange={() => handleCheckboxOnChange(index, additional)}
+                      checked={checkedState[index]}
+                    />
+                    <span>{`${additional.nazev} - ${additional.cena},–`}</span>
+                  </label>
+                </>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div className="additionalSelect">
-        <h3>Zvolte extra služby (volitelné):</h3>
-        <div className="checkBoxGrid">
-          {additionalServices.map((additional, index) => (
-            <>
-              <label className="additionalService">
-                <input
-                  disabled={!selectedService}
-                  type="checkbox"
-                  onChange={() => handleCheckboxOnChange(index, additional)}
-                  checked={checkedState[index]}
-                />
-                <span>{`${additional.nazev} - ${additional.cena},–`}</span>
-              </label>
-            </>
-          ))}
         </div>
       </div>
     </div>

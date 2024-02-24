@@ -2,30 +2,52 @@ import React from "react";
 import "./overView.css";
 
 export const OverView = ({
-  selectedDateTime,
+  serviceTimeTotal,
   servicesTotalPrice,
-  servicesTotalTime,
+  serviceTime,
   selectedAdditionalServices,
   selectedService,
 }) => {
   return (
     <div className="reservationBlock">
       <div className="overViewWrapper">
-        <h1>Přehled</h1>
-        <div>
-          <span>Vybraná služba: {selectedService.nazev}</span>
-        </div>
         <div>
           <span>
-            Délka návštěvy: {selectedService.delkaTrvani + servicesTotalTime}
+            Vybraná služba: <b>{selectedService.nazev}</b>
+          </span>
+        </div>
+        {selectedAdditionalServices && (
+          <div>
+            <span>
+              Extra služby:{" "}
+              {selectedAdditionalServices.map((s, index) => (
+                <React.Fragment key={s.nazev}>
+                  <b>{s.nazev}</b>
+                  {index < selectedAdditionalServices.length - 1 && ", "}
+                </React.Fragment>
+              ))}
+            </span>
+          </div>
+        )}
+        <div>
+          <span>
+            Délka návštěvy:{" "}
+            {/* <b> {selectedService.delkaTrvani + serviceTime}min </b> */}
+            <b>{serviceTimeTotal}</b>
           </span>
         </div>
         <div>
-          <span>Celková cena: {selectedService.cena + servicesTotalPrice}</span>
+          <span>
+            Celková cena: <b>{selectedService.cena + servicesTotalPrice}Kč</b>
+          </span>
         </div>
-        <div>
-          <span>Zvolený termín: {selectedDateTime}</span>
-        </div>
+        {/* <div>
+          {selectedDateTime && (
+            <span>
+              Zvolený termín: <b>{selectedDateTime}</b>
+            </span>
+          )}
+        </div> */}
       </div>
     </div>
   );

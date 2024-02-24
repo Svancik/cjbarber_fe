@@ -1,16 +1,18 @@
 .overViewWrapper{
     margin-top: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+    padding-bottom: 12.5px;
 }
 
 .overViewWrapper h1{
     float: left;
     margin-left:20px;
-    padding-bottom: 5px;
+    
 }
 
 .overViewWrapper span{
     margin-left: 40px;
+    text-align: justify;
 }

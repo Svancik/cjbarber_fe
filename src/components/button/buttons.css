@@ -1,0 +1,28 @@
+.goldButton{
+    background-color: black;
+    color: gold;
+    font-weight:600;
+    font-size: 20px;
+    outline: none;
+    padding: 15px 18px;
+    border: 1px solid gold;
+    width: 450px; 
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.5s ease;  
+   
+    
+
+    position: absolute;
+    left: 37.5%;
+    top: 90%;
+
+    
+}
+
+
+.goldButton:hover{
+    background-color: gold;
+    color:black;
+    cursor: pointer;
+}

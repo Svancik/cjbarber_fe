@@ -1,10 +1,20 @@
 .bookingWrapper{
-    padding-top: 10vh;
-    margin-bottom: 50px;
+    padding-top: 1rem;    margin-bottom: 50px;
+    width: 96%;
+    margin: auto;
+
  
 }
 
-
+.wrapperOfServices{
+    width: 100%;
+    min-height: 33vh;
+    align-items: center;    
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    gap: 20px;
+}
 
 
 .categorySelectWrapper{
@@ -30,31 +40,41 @@
 }
 
 .mainSelect{
-   
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
     padding-bottom: 25px;
     height: 100%;
+    margin-left: 50px;
+    width: inherit;
 }
 
 .additionalSelect{
-    margin-top: -20px;
-
-    margin-bottom: 5px;  
+    align-self: flex-start;
+    padding-top: 205px;
+    flex: 1.8;
+    margin-bottom: 5px;
 }
 
 .additionalSelect label{
 font-size: 16px;
 font-weight: 400;
+text-align: left;
 }
 
 
 .additionalSelect h3{
     font-weight: 500;
+    text-align: left;
 }
 
 .serviceSelectWrapper{
     display: flex;
     flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    flex: 1;
 }
 
 .serviceSelectHeader{
@@ -77,29 +97,33 @@ font-weight: 400;
 .checkBoxGrid{
     display: grid;
     grid-gap: 0px;
-    width: 80%;
+    width: 100%;
    
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .categoryHeader{
     display: flex;
+    margin-bottom: 10px;
 }
 
 .serviceSelectBody{
-    width: 80%;
+   /* width: 80%; */
+   flex: 1;
     display: flex;
     text-align: left;
    
-    margin-top: 10px;    
 }
 
 .formControlLabel{
     margin-top: 0px;
-    margin-bottom: 0px;    
+    margin-bottom: 0px;
 }
 
+.formControlLabel.selected {
+    font-weight: 800;
+  }
 .additionalService span{
     font-size: 18px;
 }
