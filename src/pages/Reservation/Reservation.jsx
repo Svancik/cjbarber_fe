@@ -13,7 +13,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 export const Reservation = () => {
   const [selectedService, setSelectedService] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState();
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState(
     []
   );

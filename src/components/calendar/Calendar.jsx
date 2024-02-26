@@ -9,7 +9,6 @@ import { times } from "../../barberData";
 
 import dayjs from "dayjs";
 import { useEffect } from "react";
-import { bookedDates } from "../../calenderData";
 
 /*TODO:
 
@@ -21,65 +20,133 @@ E) Dodělat view na mobil
 
 */
 
+const openingHours = "10:00";
+const closingHours = "21:00";
+
+const bookedDates = [
+  {
+    id: 3,
+    date: "02/26/2024",
+    startTime: "13:00",
+    finishTime: "14:30",
+    clientName: "Jane Smith",
+    selectedService: "Follow-up",
+    additionalServices: ["ServiceC"],
+  },
+];
+
+const convertTimeToMinutes = (time) => {
+  const [hours, minutes] = time.split(":").map(Number);
+  return hours * 60 + minutes;
+};
+
+const convertMinutesToTime = (minutes) => {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+};
+
+const getTimeBlocks = (date, timeBlockLength) => {
+  // Convert the dayjs object to a string in the "MM/DD/YYYY" format for comparison
+  if (!date || !date.format) {
+    console.error("Date is undefined or not a dayjs object.");
+    return [];
+  }
+  const formattedSelectedDate = date.format("MM/DD/YYYY");
+  const opening = convertTimeToMinutes(openingHours);
+  const closing = convertTimeToMinutes(closingHours);
+  const blocks = [];
+
+  for (
+    let time = opening;
+    time + timeBlockLength <= closing;
+    time += timeBlockLength
+  ) {
+    const endTime = time + timeBlockLength;
+    if (endTime > closing) break;
+
+    const formattedStartTime = convertMinutesToTime(time);
+    const formattedEndTime = convertMinutesToTime(endTime);
+
+    const isBooked = bookedDates.some((booking) => {
+      // Compare formattedSelectedDate with booking.date directly
+      if (booking.date !== formattedSelectedDate) return false;
+
+      const bookingStart = convertTimeToMinutes(booking.startTime);
+      const bookingEnd = convertTimeToMinutes(booking.finishTime);
+
+      // Check if the time block is within the booked period
+      return time < bookingEnd && endTime > bookingStart;
+    });
+
+    if (!isBooked) {
+      blocks.push(`${formattedStartTime}`);
+    }
+  }
+
+  return blocks;
+};
 export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
+  const timeBlockLength = serviceTimeTotal;
   const [time, setTime] = useState(null);
-
-  const [date, setDate] = useState(dayjs().add(2, "days"));
+  const [date, setDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState("");
+  const [availableTimeBlocks, setAvailableTimeBlocks] = useState([]);
 
+  useEffect(() => {
+    // Ensure selectedDate is always a dayjs object
+    if (selectedDate && selectedDate.format) {
+      const newAvailableTimeBlocks = getTimeBlocks(
+        selectedDate,
+        serviceTimeTotal
+      );
+      setAvailableTimeBlocks(newAvailableTimeBlocks);
+    }
+  }, [selectedDate, serviceTimeTotal]);
+  console.log("selectedDate: ", selectedDate);
   // Opening hours for reservations
   const openingHours = { start: 10, end: 21 };
+  console.log("date: ", date);
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateChange = (newDate) => {
+    setSelectedDate(dayjs(newDate)); // This should ensure 'selectedDate' is always a dayjs object
   };
 
-  // Function to generate time slots dynamically
-  const generateTimeSlots = () => {
-    const timeSlots = [];
-    const startTime = openingHours.start * 60; // Convert to minutes
-    const endTime = openingHours.end * 60; // Convert to minutes
-    const interval = serviceTimeTotal; // Desired service length in minutes
-    for (
-      let currentTime = startTime;
-      currentTime < endTime;
-      currentTime += interval
-    ) {
-      const time = new Date(
-        0,
-        0,
-        0,
-        Math.floor(currentTime / 60),
-        currentTime % 60
-      );
-      const formattedTime = time.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      // console.log("selectedDate:", selectedDate.format("MM/DD/YYYY"));
-      // console.log("formatedTime:", formattedTime);
-      // Check if the time slot is not booked
-      const isBooked = bookedDates.some(
-        (bookedDate) =>
-          (bookedDate.date === selectedDate.format("MM/DD/YYYY") &&
-            dayjs(bookedDate.startTime, "HH:mm").isSame(time)) ||
-          (dayjs(bookedDate.startTime, "HH:mm").isBefore(time) &&
-            dayjs(bookedDate.finishTime, "HH:mm").isAfter(time))
-      );
+  console.log(date); // Check what 'date' is before calling .format on it
+  const formattedSelectedDate = date.format("MM/DD/YYYY");
 
-      //console.log("isBooked:", isBooked);
-      if (!isBooked) {
-        timeSlots.push({ timeBlock: formattedTime, isBlocked: false });
-      } else {
-        console.log(
-          "*************** ******** *** JE BLOKOVÁNO *************** ********"
-        );
-        timeSlots.push({ timeBlock: formattedTime, isBlocked: true });
-      }
+  useEffect(() => {
+    // This check ensures that 'selectedDate' is defined and is a dayjs object before trying to format it
+    if (selectedDate && selectedDate.format) {
+      const newAvailableTimeBlocks = getTimeBlocks(
+        selectedDate,
+        timeBlockLength
+      );
+      // Update your state or variable that holds available time blocks
     }
+  }, [selectedDate, timeBlockLength]);
 
-    return timeSlots;
+  useEffect(() => {
+    if (selectedDate && selectedDate.format) {
+      const newAvailableTimeBlocks = getTimeBlocks(
+        selectedDate,
+        timeBlockLength
+      );
+      // Update your state or variable that holds available time blocks
+    }
+  }, [selectedDate, timeBlockLength]);
+
+  useEffect(() => {
+    const newAvailableTimeBlocks = getTimeBlocks(selectedDate, timeBlockLength);
+    // Update your state or variable that holds available time blocks
+  }, [selectedDate, timeBlockLength]);
+
+  const handleTimeBlockClick = (timeBlock) => {
+    // Implement what happens when a time block is clicked
+    console.log("Time block clicked:", timeBlock);
+    // For example, setting the selected time (you might need to adjust this based on your app's needs)
+    setSelectedDateTime(timeBlock);
   };
 
   useEffect(() => {
@@ -89,13 +156,6 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
       setDate(date.add(1, "day"));
     }
   }, [date, disabledDates]);
-
-  // Update time slots when selectedDate or serviceLength changes
-  useEffect(() => {
-    const times = generateTimeSlots();
-    // Set the generated time slots to your state or perform any other action
-    console.log(times);
-  }, [selectedDate]);
 
   //console.log("kalendar", dayjs(date).format("MM/DD/YYYY"));
 
@@ -107,9 +167,9 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
       })
     );
   };
-  const disabledDates = ["02/27/2024", "02/28/2024", "02/29/2024"]; // Example array of disabled dates
+  const disabledDates = ["03/27/2024", "03/28/2024", "03/29/2024"]; // Example array of disabled dates
 
-  const minDate = dayjs().add(2, "days");
+  const minDate = dayjs().add(0, "days");
 
   return (
     <div className="reservationBlock">
@@ -126,7 +186,7 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
           >
             <DateCalendar
               label="Date"
-              inputFormat="MM/DD/YYYY"
+              inputformat="MM/DD/YYYY"
               fixedWeekNumber={6}
               shouldDisableDate={shouldDisableDate(disabledDates)}
               views={["day", "month"]}
@@ -139,23 +199,38 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
             />
           </LocalizationProvider>
         </div>
-
-        <div>
-          <div className="timeBlocks">
-            {generateTimeSlots().map((time) => (
+        <div className="timeBlocks">
+          {availableTimeBlocks.length > 0 ? (
+            availableTimeBlocks.map((block, index) => (
               <div
-                className={`timeBlock ${time.isBlocked ? "blocked" : ""}`}
-                key={time.timeBlock}
-                onClick={() => setSelectedTime(time.timeBlock)}
+                key={index}
+                className="timeBlock"
+                onClick={() => handleTimeBlockClick(block)}
               >
-                <span>{time.timeBlock}</span>
+                {block}
               </div>
-            ))}
-          </div>
-          {/* Display selected time or perform further actions */}
-          {selectedTime && <p>Selected Time: {selectedTime}</p>}
+            ))
+          ) : (
+            <p>No available time slots for this date.</p>
+          )}
         </div>
       </div>
+      {/* <div className="debug">
+        <span>
+          ZVOLENÉ DATUM: {selectedDate} ZVOLENÝ ČAS: {selectedTime}
+        </span>{" "}
+        <br />
+        <br />
+        {bookedDates.map((date) => (
+          <>
+            <span>
+              Datum: {date.date} StartTime: {date.startTime} FinishTime:{" "}
+              {date.finishTime} ClientName: {date.clientName} <br />
+            </span>
+            {console.log("datumy stejné? ", selectedDate === date.date)}
+          </>
+        ))}
+      </div> */}
     </div>
   );
 };

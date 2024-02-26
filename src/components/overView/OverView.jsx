@@ -16,7 +16,7 @@ export const OverView = ({
             Vybraná služba: <b>{selectedService.nazev}</b>
           </span>
         </div>
-        {selectedAdditionalServices && (
+        {selectedAdditionalServices.length > 1 && (
           <div>
             <span>
               Extra služby:{" "}
