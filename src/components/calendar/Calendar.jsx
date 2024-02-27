@@ -25,8 +25,8 @@ const closingHours = "21:00";
 
 const bookedDates = [
   {
-    id: 3,
-    date: "02/26/2024",
+    id: 1,
+    date: "02/27/2024",
     startTime: "13:00",
     finishTime: "14:30",
     clientName: "Jane Smith",
@@ -84,15 +84,24 @@ const getTimeBlocks = (date, timeBlockLength) => {
     }
   }
 
+  const disableWeekends = (date) => {
+    return date.getDay() === 0 || date.getDay() === 6;
+  };
+
   return blocks;
 };
 export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
-  const timeBlockLength = serviceTimeTotal;
-  const [time, setTime] = useState(null);
   const [date, setDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [selectedTime, setSelectedTime] = useState("");
   const [availableTimeBlocks, setAvailableTimeBlocks] = useState([]);
+  const currentDate = dayjs();
+  useEffect(() => {
+    // Check if the date is disabled, directly passing the date to be checked
+    if (shouldDisableDate(date)) {
+      // If the date is disabled, move to the next day
+      setDate(date.add(1, "day"));
+    }
+  }, [date]);
 
   useEffect(() => {
     // Ensure selectedDate is always a dayjs object
@@ -106,41 +115,11 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
   }, [selectedDate, serviceTimeTotal]);
   console.log("selectedDate: ", selectedDate);
   // Opening hours for reservations
-  const openingHours = { start: 10, end: 21 };
   console.log("date: ", date);
 
   const handleDateChange = (newDate) => {
     setSelectedDate(dayjs(newDate)); // This should ensure 'selectedDate' is always a dayjs object
   };
-
-  console.log(date); // Check what 'date' is before calling .format on it
-  const formattedSelectedDate = date.format("MM/DD/YYYY");
-
-  useEffect(() => {
-    // This check ensures that 'selectedDate' is defined and is a dayjs object before trying to format it
-    if (selectedDate && selectedDate.format) {
-      const newAvailableTimeBlocks = getTimeBlocks(
-        selectedDate,
-        timeBlockLength
-      );
-      // Update your state or variable that holds available time blocks
-    }
-  }, [selectedDate, timeBlockLength]);
-
-  useEffect(() => {
-    if (selectedDate && selectedDate.format) {
-      const newAvailableTimeBlocks = getTimeBlocks(
-        selectedDate,
-        timeBlockLength
-      );
-      // Update your state or variable that holds available time blocks
-    }
-  }, [selectedDate, timeBlockLength]);
-
-  useEffect(() => {
-    const newAvailableTimeBlocks = getTimeBlocks(selectedDate, timeBlockLength);
-    // Update your state or variable that holds available time blocks
-  }, [selectedDate, timeBlockLength]);
 
   const handleTimeBlockClick = (timeBlock) => {
     // Implement what happens when a time block is clicked
@@ -148,28 +127,44 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
     // For example, setting the selected time (you might need to adjust this based on your app's needs)
     setSelectedDateTime(timeBlock);
   };
+  const shouldDisableDate = (date) => {
+    const dayjsDate = dayjs(date);
 
-  useEffect(() => {
-    // Check if the initial date is in disabledDates
-    if (shouldDisableDate(disabledDates)(date)) {
-      // If yes, add 1 day to the date
-      setDate(date.add(1, "day"));
-    }
-  }, [date, disabledDates]);
-
-  //console.log("kalendar", dayjs(date).format("MM/DD/YYYY"));
-
-  const shouldDisableDate = (disabledDates) => (day) => {
-    // Implement your logic to check if the day should be disabled
-    return disabledDates.some((disabledDate) =>
-      dayjs(disabledDate, "MM/DD/YYYY").isSame(day, {
-        dateFormat: "MM/DD/YYYY",
-      })
+    const isSundayOrMonday = dayjsDate.day() === 0 || dayjsDate.day() === 1;
+    const isDisabledDate = disabledDates.some((disabledDate) =>
+      dayjsDate.isSame(dayjs(disabledDate, "MM/DD/YYYY"), "day")
     );
-  };
-  const disabledDates = ["03/27/2024", "03/28/2024", "03/29/2024"]; // Example array of disabled dates
 
-  const minDate = dayjs().add(0, "days");
+    return isSundayOrMonday || isDisabledDate;
+  };
+
+  // Your disabled dates array
+  const disabledDates = ["03/27/2024", "04/28/2024", "03/29/2024"];
+
+  // Function to check if a date is disabled
+  const isDisabled = (date) => {
+    const dayOfWeek = date.day(); // Sunday is 0, Monday is 1
+    const isSundayOrMonday = dayOfWeek === 0 || dayOfWeek === 1;
+    const isDisabledDate = disabledDates.some((disabledDate) =>
+      date.isSame(dayjs(disabledDate, "MM/DD/YYYY"), "day")
+    );
+
+    return isSundayOrMonday || isDisabledDate;
+  };
+
+  // Function to find the first available date
+  const findFirstAvailableDate = () => {
+    let date = dayjs(); // Start with today
+    while (isDisabled(date)) {
+      date = date.add(1, "day"); // Increment the date by one day and check again
+    }
+    return date;
+  };
+
+  // Setting the minDate to the first available date
+  const minDate = findFirstAvailableDate();
+
+  // The rest of your component remains the same, just replace the minDate calculation with the above
 
   return (
     <div className="reservationBlock">
@@ -186,9 +181,9 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
           >
             <DateCalendar
               label="Date"
-              inputformat="MM/DD/YYYY"
+              inputFormat="MM/DD/YYYY"
               fixedWeekNumber={6}
-              shouldDisableDate={shouldDisableDate(disabledDates)}
+              shouldDisableDate={shouldDisableDate}
               views={["day", "month"]}
               date={date}
               defaultValue={minDate}
