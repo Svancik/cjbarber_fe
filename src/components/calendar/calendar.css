@@ -26,7 +26,7 @@ float: right;
     grid-gap: 4px;
     width: 60%;   
     grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-top:30px;
   margin-left: 100px;
   line-height:50px;
@@ -39,7 +39,7 @@ height: 400px;
 
 .timeBlock{
     float: left;
-    width: 120px;
+    width: 97.5%;
     height: 50px;
     margin: 0;
     padding: 0;

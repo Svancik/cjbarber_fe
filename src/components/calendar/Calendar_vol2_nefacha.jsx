@@ -6,9 +6,10 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { useState } from "react";
 import { csCZ } from "@mui/x-date-pickers";
 import { times } from "../../barberData";
+
+import dayjs from "dayjs";
 import "dayjs/locale/cs"; // Import Czech locale
 import localizedFormat from "dayjs/plugin/localizedFormat";
-import dayjs from "dayjs";
 import { useEffect } from "react";
 
 /*TODO:
@@ -22,7 +23,6 @@ E) Dodělat view na mobil
 */
 dayjs.extend(localizedFormat);
 dayjs.locale("cs"); // Use Czech locale globally
-
 const openingHours = "10:00";
 const closingHours = "21:00";
 
@@ -30,8 +30,35 @@ const bookedDates = [
   {
     id: 1,
     date: "02/28/2024",
-    startTime: "10:00",
-    finishTime: "20:30",
+    startTime: "10:30",
+    finishTime: "14:30",
+    clientName: "Jane Smith",
+    selectedService: "Follow-up",
+    additionalServices: ["ServiceC"],
+  },
+  {
+    id: 2,
+    date: "02/28/2024",
+    startTime: "14:30",
+    finishTime: "18:30",
+    clientName: "Jane Smith",
+    selectedService: "Follow-up",
+    additionalServices: ["ServiceC"],
+  },
+  {
+    id: 3,
+    date: "02/28/2024",
+    startTime: "18:30",
+    finishTime: "21:30",
+    clientName: "Jane Smith",
+    selectedService: "Follow-up",
+    additionalServices: ["ServiceC"],
+  },
+  {
+    id: 4,
+    date: "02/29/2024",
+    startTime: "13:00",
+    finishTime: "14:30",
     clientName: "Jane Smith",
     selectedService: "Follow-up",
     additionalServices: ["ServiceC"],
@@ -39,6 +66,10 @@ const bookedDates = [
 ];
 
 const convertTimeToMinutes = (time) => {
+  if (!time || typeof time !== "string" || !time.includes(":")) {
+    console.error("Invalid or undefined time provided:", time);
+    return 0; // Return 0 or some other default value as a fallback
+  }
   const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
 };
@@ -86,58 +117,49 @@ const getTimeBlocks = (date, timeBlockLength) => {
       blocks.push(`${formattedStartTime}`);
     }
   }
+
   return blocks;
 };
-
-// Function to check if there are available time blocks for a service time total
-const hasAvailableTimeBlocks = (date, serviceTimeTotal) => {
-  const formattedDate = date.format("MM/DD/YYYY");
-  const opening = convertTimeToMinutes(openingHours);
-  const closing = convertTimeToMinutes(closingHours);
-  let available = false;
-
-  bookedDates.forEach((booking) => {
-    if (booking.date === formattedDate) {
-      const bookingStart = convertTimeToMinutes(booking.startTime);
-      const bookingEnd = convertTimeToMinutes(booking.finishTime);
-      if (
-        bookingStart - opening >= serviceTimeTotal ||
-        closing - bookingEnd >= serviceTimeTotal
-      ) {
-        available = true;
-      }
-    }
-  });
-
-  // If there are no bookings for the date, the entire day is available
-  if (!bookedDates.some((booking) => booking.date === formattedDate)) {
-    available = true;
-  }
-
-  return available;
-};
-
-// Function to find the next available date based on service time total
-const findNextAvailableDate = (startDate, serviceTimeTotal) => {
-  let date = dayjs(startDate);
-  while (!hasAvailableTimeBlocks(date, serviceTimeTotal)) {
-    date = date.add(1, "day");
-  }
-  return date;
-};
-
 export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
   const [date, setDate] = useState(dayjs());
-  const [selectedDate, setSelectedDate] = useState(
-    findNextAvailableDate(dayjs(date), serviceTimeTotal)
-  );
+  const [selectedDate, setSelectedDate] = useState(dayjs());
   const [availableTimeBlocks, setAvailableTimeBlocks] = useState([]);
-  const minDate = findNextAvailableDate(dayjs(date), serviceTimeTotal);
+  const [disabledDates, setDisabledDates] = useState([
+    "03/26/2024",
+    "04/04/2024",
+  ]);
 
-  // const [minDate, setMinDate] = useState(
-  //   findNextAvailableDate(dayjs(date), serviceTimeTotal)
-  // );
-  // const currentDate = dayjs();
+  useEffect(() => {
+    const opening = convertTimeToMinutes(openingHours);
+    const closing = convertTimeToMinutes(closingHours);
+    const serviceLength = serviceTimeTotal; // Convert serviceTimeTotal to minutes if necessary
+
+    const newDisabledDates = bookedDates.reduce((acc, booking) => {
+      const bookingDate = dayjs(booking.date);
+      const bookingStart = convertTimeToMinutes(
+        dayjs(booking.startTime).format("HH:mm")
+      );
+      const bookingEnd = bookingStart + booking.serviceLength;
+
+      // Assuming serviceLength is the minimum time required for an appointment
+      if (bookingEnd + serviceLength > closing) {
+        // If there's not enough time after this booking, disable the date
+        if (!acc.includes(booking.date)) acc.push(booking.date);
+      } else if (bookingStart - opening < serviceLength) {
+        // If there's not enough time before the first booking of the day, disable the date
+        if (!acc.includes(booking.date)) acc.push(booking.date);
+      }
+      // Additional logic needed here to handle middle-of-day bookings
+      // This example only checks the first and last bookings of a day
+
+      return acc;
+    }, []);
+
+    setDisabledDates(
+      newDisabledDates.map((date) => dayjs(date).format("MM/DD/YYYY"))
+    );
+  }, [serviceTimeTotal, bookedDates]);
+
   useEffect(() => {
     // Check if the date is disabled, directly passing the date to be checked
     if (shouldDisableDate(date)) {
@@ -145,11 +167,6 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
       setDate(date.add(1, "day"));
     }
   }, [date]);
-
-  // useEffect(() => {
-  //   const calculatedMinDate = findNextAvailableDate(dayjs(), serviceTimeTotal); // Use the current date or a specific start date
-  //   setMinDate(calculatedMinDate); // Assuming you have a state [minDate, setMinDate] to hold this
-  // }, [serviceTimeTotal]);
 
   useEffect(() => {
     // Ensure selectedDate is always a dayjs object
@@ -161,6 +178,9 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
       setAvailableTimeBlocks(newAvailableTimeBlocks);
     }
   }, [selectedDate, serviceTimeTotal]);
+  console.log("selectedDate: ", selectedDate);
+  // Opening hours for reservations
+  console.log("date: ", date);
 
   const handleDateChange = (newDate) => {
     setSelectedDate(dayjs(newDate)); // This should ensure 'selectedDate' is always a dayjs object
@@ -176,41 +196,60 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
     const dayjsDate = dayjs(date);
 
     const isSundayOrMonday = dayjsDate.day() === 0 || dayjsDate.day() === 1;
+    const formattedDate = dayjs(date).format("MM/DD/YYYY");
+    const isDisabledDate = disabledDates.includes(formattedDate);
+
+    return isSundayOrMonday || isDisabledDate;
+  };
+
+  // Function to check if a date is disabled
+  const isDisabled = (date) => {
+    const dayOfWeek = date.day(); // Sunday is 0, Monday is 1
+    const isSundayOrMonday = dayOfWeek === 0 || dayOfWeek === 1;
     const isDisabledDate = disabledDates.some((disabledDate) =>
-      dayjsDate.isSame(dayjs(disabledDate, "MM/DD/YYYY"), "day")
+      date.isSame(dayjs(disabledDate, "MM/DD/YYYY"), "day")
     );
 
     return isSundayOrMonday || isDisabledDate;
   };
 
-  // Your disabled dates array
-  const disabledDates = ["03/27/2024", "04/28/2024", "03/29/2024"];
+  // Function to find the first available date
+  const findFirstAvailableDate = () => {
+    let date = dayjs(); // Start with today
+    while (isDisabled(date)) {
+      date = date.add(1, "day"); // Increment the date by one day and check again
+    }
+    return date;
+  };
+
+  // Setting the minDate to the first available date
+  const minDate = findFirstAvailableDate();
+  console.log("minDate: ", minDate);
+  // The rest of your component remains the same, just replace the minDate calculation with the above
 
   return (
     <div className="reservationBlock">
-      <h2 className="reservationTitle">
-        {" "}
-        Zvolený datum: {selectedDate.format("DD/MM/YYYY")}
-      </h2>
+      <h2 className="reservationTitle"> Zvolte termín </h2>
 
       <div className="calendarWrapper">
         <div className="datePicker">
           <LocalizationProvider
             dateAdapter={AdapterDayjs}
-            adapterLocale="cs"
+            adapterLocale="cs" // Make sure this matches the imported locale
             localeText={
               csCZ.components.MuiLocalizationProvider.defaultProps.localeText
             }
           >
             <DateCalendar
+              locale="cs"
               label="Date"
               inputFormat="MM/DD/YYYY"
               fixedWeekNumber={6}
               shouldDisableDate={shouldDisableDate}
               views={["day", "month"]}
               date={date}
+              defaultValue={minDate}
               minDate={minDate}
-              disableHighlightToday
               value={selectedDate}
               onChange={handleDateChange}
               showDaysOutsideCurrentMonth
@@ -218,6 +257,7 @@ export const Calendar = ({ setSelectedDateTime, serviceTimeTotal }) => {
           </LocalizationProvider>
         </div>
         <div className="timeBlocks">
+          <h2>{selectedDate.format("DD/MM/YYYY")}</h2>
           {availableTimeBlocks.length > 0 ? (
             availableTimeBlocks.map((block, index) => (
               <div
