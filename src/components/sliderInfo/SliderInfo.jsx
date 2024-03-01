@@ -65,7 +65,7 @@ export const SliderInfo = () => {
           </table>
         </div>
         <Link className="link" to="/rezervace">
-          <button className="reservation"> Online Rezervace</button>
+          <button className="reservationBtn"> Online Rezervace</button>
         </Link>
       </div>
     </div>

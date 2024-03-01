@@ -5,12 +5,13 @@
     flex-direction: row;
     width: 100%;
     margin-top: 20px;
+    align-items: center;
 }
 
 
 
 .datePicker{
-    width: 500px;
+  flex: 0.65;
     margin-top: 10px;
 }
 
@@ -19,14 +20,23 @@
   cursor: not-allowed;
 }
 
+.timeBlocksWrapper{
+  flex: 1.35;
+  padding-right: 4rem;
+}
+
+.timeBlocksWrapper h4{
+  text-align: left;
+}
+
 .timeBlocks{
-  align-self: flex-start;
+  width: 100%;
+  align-self: center;
 float: right;  
   display: grid;   
     grid-gap: 4px;
-    width: 60%;   
-    grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-top:30px;
   margin-left: 100px;
   line-height:50px;

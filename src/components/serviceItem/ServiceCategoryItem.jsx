@@ -7,7 +7,11 @@ export const ServiceCategoryItem = ({ serviceCategory }) => {
     (service) => service.categoryId == serviceCategory.id
   );
   return (
-    <div className="block">
+    <div
+      className="block"
+      data-aos={serviceCategory.id % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos-duration="1800"
+    >
       <div className="serviceWrapper">
         <div className={serviceCategory.id % 2 === 1 ? "img " : "img"}>
           <img

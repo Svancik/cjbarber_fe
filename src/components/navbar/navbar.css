@@ -6,7 +6,7 @@
     top: 0px;
     width: 100vw;
     height: 75px;
-    
+    overflow-x: hidden; /* Prevent horizontal overflow */
      border-bottom: 1px solid #1b0760; 
     display: flex;
     
@@ -31,10 +31,10 @@
     font-weight: 400;
     display: flex;
     flex-direction: column;
+    gap: 25px;
 }
 
 .right span{
-    margin-right: 25px;         
     line-height: 80px; 
     vertical-align: middle;
     text-transform: uppercase;

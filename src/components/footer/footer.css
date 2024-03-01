@@ -1,21 +1,32 @@
 .footerWrapper{
     width: 100vw;
+    margin: auto;
     background-color: black;
     color: white;
     padding-top: 50px;
     padding-bottom: 15px;
     font-size: 16px;
-    margin-top: 25px;
-    display: flex;
-    flex-direction: row;
+
+    overflow-x: hidden; /* Prevent horizontal overflow */
+
+  
     padding-left: 100px;
 }
 
 .footerWrapper .footerRow{
     display: flex;
+
     margin-left: 25px;
     margin-bottom: 10px;
     width: max-content;
+}
+
+.footerMiddle{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+
 }
 
 .footerRow span{

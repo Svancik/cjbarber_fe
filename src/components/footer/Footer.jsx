@@ -10,38 +10,40 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 export const Footer = () => {
   return (
     <div className="footerWrapper" id="kontakt">
-      <div className="footerRow">
-        <LocationOnIcon className="mui" />
-        <div className="location">
-          <span className="name">CJ´s BARBERSHOP</span>
-          <span>Orlova 135, Roudnice nad Labem</span>
+      <div className="footerMiddle">
+        <div className="footerRow">
+          <LocationOnIcon className="mui" />
+          <div className="location">
+            <span className="name">CJ´s BARBERSHOP</span>
+            <span>Orlova 135, Roudnice nad Labem</span>
+          </div>
         </div>
-      </div>
 
-      <div className="footerRow">
-        <PhoneCallbackIcon className="mui" />
-        <span className="bold">+420 777 606 447</span>
-      </div>
+        <div className="footerRow">
+          <PhoneCallbackIcon className="mui" />
+          <span className="bold">+420 777 606 447</span>
+        </div>
 
-      <div className="footerRow">
-        <Instagram className="mui" />
-        <a href="https://www.instagram.com/cjs_barbershop_/">
-          <span className="bold">Instagram</span>
-        </a>
-      </div>
+        <div className="footerRow">
+          <Instagram className="mui" />
+          <a href="https://www.instagram.com/cjs_barbershop_/">
+            <span className="bold">Instagram</span>
+          </a>
+        </div>
 
-      <div className="footerRow">
-        <FacebookIcon className="mui" />
-        <a href="https://www.facebook.com/people/CJs-Barbershop/100085528367093/?paipv=0&eav=AfaQY-IKyy9lxJp4JMa3QQEH83xOL7OL-Ginrkw_dCSDRNFQtc_y361ICmOeMMIrY&_rdr">
-          <span className="bold">Facebook</span>
-        </a>
-      </div>
+        <div className="footerRow">
+          <FacebookIcon className="mui" />
+          <a href="https://www.facebook.com/people/CJs-Barbershop/100085528367093/?paipv=0&eav=AfaQY-IKyy9lxJp4JMa3QQEH83xOL7OL-Ginrkw_dCSDRNFQtc_y361ICmOeMMIrY&_rdr">
+            <span className="bold">Facebook</span>
+          </a>
+        </div>
 
-      <div className="footerRow">
-        <MusicNoteIcon className="mui" />
-        <a href="https://www.tiktok.com/@cj_s_barbershop">
-          <span className="bold">Tik Tok</span>
-        </a>
+        <div className="footerRow">
+          <MusicNoteIcon className="mui" />
+          <a href="https://www.tiktok.com/@cj_s_barbershop">
+            <span className="bold">Tik Tok</span>
+          </a>
+        </div>
       </div>
     </div>
   );

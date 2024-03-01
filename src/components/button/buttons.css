@@ -10,16 +10,11 @@
     margin: auto;
     cursor: pointer;
     transition: all 0.5s ease;  
-   
-    
-
+    padding-bottom: 20px;
     position: absolute;
     left: 37.5%;
-    top: 90%;
-
-    
+    top: 85%;   
 }
-
 
 .goldButton:hover{
     background-color: gold;

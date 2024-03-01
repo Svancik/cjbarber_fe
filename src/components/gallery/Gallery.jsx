@@ -7,6 +7,9 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CancelIcon from "@mui/icons-material/Cancel";
+import AOS from "aos";
+
+import "aos/dist/aos.css"; // Import AOS CSS
 
 export const Gallery = ({ col3 }) => {
   const allGalleryItems = [...visibleGalleryItems, ...hiddenGalleryItems];
@@ -14,6 +17,19 @@ export const Gallery = ({ col3 }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [viewFullGallery, setViewFullGallery] = useState(false);
+
+  const toggleViewFullGallery = () => {
+    setViewFullGallery(!viewFullGallery);
+    // Reinitialize AOS to ensure animations on newly visible content work correctly
+    AOS.refresh();
+  };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000, // Global animation duration
+      once: false, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
 
   useEffect(() => {
     open
@@ -54,16 +70,18 @@ export const Gallery = ({ col3 }) => {
         ))}
       </div>
 
-      <div hidden={!viewFullGallery} timing={400}>
-        <div className="hiddenContainer galleryContainer">
-          {hiddenGalleryItems.map((item) => (
-            <GalleryItem
-              galleryItem={item}
-              id={item.id}
-              handleOpen={handleOpen}
-            />
-          ))}
-        </div>
+      <div
+        className={`hiddenContainer galleryContainer ${
+          viewFullGallery ? "show" : ""
+        }`}
+      >
+        {hiddenGalleryItems.map((item) => (
+          <GalleryItem
+            galleryItem={item}
+            id={item.id}
+            handleOpen={handleOpen}
+          />
+        ))}
       </div>
 
       <div className={col3 ? "photosWrapper col3" : "photosWrapper"}>
@@ -87,6 +105,7 @@ export const Gallery = ({ col3 }) => {
                   autoPlay
                   muted
                   className="gallerySliderImg"
+                  
                 >
                   <source
                     src={require(`../../media/barbershop/galerie/${allGalleryItems[slideNumber].src}`)}
@@ -109,11 +128,7 @@ export const Gallery = ({ col3 }) => {
           </div>
         )}
       </div>
-
-      <button
-        className="viewMore"
-        onClick={() => setViewFullGallery(!viewFullGallery)}
-      >
+      <button className="viewMore" onClick={toggleViewFullGallery}>
         {viewFullGallery ? (
           <KeyboardArrowUpIcon
             className="mui"

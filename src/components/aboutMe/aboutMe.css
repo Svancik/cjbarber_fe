@@ -4,8 +4,8 @@
     margin-top: 2rem;
     background-color: black;
     color: white;
-    height: 70vh;
-    padding-top: 10rem;
+    height: 64vh;
+    padding-top: 5rem;
     padding-bottom: 0rem;
     margin-bottom: 0px;
     clip-path: polygon(0% 10%, 100% 0%, 100% 86%, 0% 100%);
@@ -19,29 +19,45 @@
 .aboutMe{
     max-width: 1600px;
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: flex;
 }
 
-.aboutMe .left{
+.aboutMe .left {
     flex: 2;
+    background-color: black;
+    display: flex; /* Ensure the container is a flex container */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
 }
 
-.aboutMe .left img{
-    height: 520px;   
+.aboutMe .left img {
+    height: 550px;
+    display: flex;
+    justify-self: center;
+    margin: auto;
+    background-color: black;
+    width: 370px;
+    object-fit: cover;
 }
 
 .aboutMe .right{
     flex: 8;
-    text-align: left;
-    padding-left: 120px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
 }
 
 .aboutMe .right h2{
     font-weight: 400;
+    margin-left: 0;
     color: gold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 15px;
+    text-align: left;
+    justify-self: left;
+    font-size: 28px;
 }
 
 .aboutMe .right span{

@@ -5,45 +5,82 @@
 .arrowBackIcon{
     position: absolute;
     z-index: 99999;
-    height: 150px;
-    width: 150px;
-    top: 12.5%;
-    left: 7.5%;
+    height: 250px;
+    width: 250px;
+    top: 36.5%;
+    left: 4.25%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
+    color: gold;
+
 }
 
 .arrowBackIcon:hover{
-    color: gold;
+    color: goldenrod;
 }
 
-.reservationSection{
+.reservationSection {
     width: 100vw;
-    height: 99vh;
-    margin-top: 140px;
+    height: 84.1vh; /* Note: Originally mentioned as 72.5vh, but the style shows 82.25vh */
+    margin-top: 75px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    background-image: url("../../media/samBG.jpeg"); 
+    background-size: cover;
+
+
     display: flex;
     justify-content: center;
+    align-items: center; /* This will vertically center the child in the container */
+}
+
+.reservationFrame {
+    min-height: 700px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content inside the reservationFrame vertically */
+    text-align: center;
+    color: black;
+    border-radius: var(--size-radius);
+    background: rgba(255, 255, 255, 0.965);
+    border: 3px solid black;
+    box-shadow: .25rem .25rem 0 black;
+    transition: all 0.5s ease;
+    width: 72%;
+}
 
 
-    }
-    
-    .reservationFrame{
-    
-      height: fit-content;
-
-position: relative;
-        display: flex;
-        color: black;
-        flex-direction: column;
-        text-align: center;
-        border-radius: var(--size-radius);
-        background: white;
-        border: 3px solid black;
-        box-shadow: .25rem .25rem 0 black;
+.reserveBtn{
+        background-color: black;
+        color: gold;
+        font-weight:600;
+        font-size: 20px;
+        outline: none;
+        padding: 15px 18px;
+        border: 1px solid gold;
+        width: 450px; 
+        margin: auto;
+        cursor: pointer;
         transition: all 0.5s ease;  
-        width: 72%;  
-        
+        padding-bottom: 15px;
+        position: absolute;
+        left: 37.5%;
+        top: 85%;   
     }
+    
+    .reserveBtn:hover{
+        background-color: gold;
+        color:black;
+        cursor: pointer;
+    }
+
+    .reserveBtn:disabled {
+        background-color: #afafaf; /* Grayed out */
+        cursor: not-allowed;
+        color: gold;
+      }
 
 /* @media screen {
    Pro 190x1080 width: 84.5%;

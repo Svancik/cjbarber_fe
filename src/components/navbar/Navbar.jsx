@@ -7,7 +7,9 @@ export const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <img src={require("../../media/logoVector.png")} alt="" />
+        <Link className="link" to="/#uvod">
+          <img src={require("../../media/logoVector.png")} alt="" />
+        </Link>
       </div>
       <div className="right">
         <div className="menuItem">

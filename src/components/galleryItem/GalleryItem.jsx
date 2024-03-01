@@ -11,13 +11,14 @@ export const GalleryItem = ({ galleryItem, handleOpen }) => {
               ? `galleryCell ${galleryItem.extraCSS}`
               : "galleryCell"
           }
+          data-aos="fade-up"
+          data-aos-duration="2000"
         >
           <video
             controls
             loop
             autoPlay
             muted
-            controls
             className="galleryItem"
             onClick={() => handleOpen(galleryItem.id - 1)}
           >
@@ -30,6 +31,9 @@ export const GalleryItem = ({ galleryItem, handleOpen }) => {
       ) : (
         <div
           className={galleryItem.big ? "galleryCell bigItem" : "galleryCell"}
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
         >
           <img
             src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}

@@ -14,6 +14,7 @@ export const Services = () => {
           <ServiceCategoryItem
             serviceCategory={serviceCategory}
             key={serviceCategory.id}
+
           />
         ))}
 

@@ -4,8 +4,10 @@
     margin-top: 0px;
     margin-left: 50px;
     width: 85%;
-    margin-bottom: 50px;
     gap: 40px;
+    margin: auto;
+    margin-bottom: 50px;
+
 }
 
 .formWrapper .card{

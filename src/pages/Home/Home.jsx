@@ -7,7 +7,6 @@ import { Navbar } from "../../components/navbar/Navbar";
 import ScrollToHashElement from "../../components/ScrollToHashElement";
 import { AboutMe } from "../../components/aboutMe/AboutMe";
 
-
 export const Home = () => {
   return (
     <div>
