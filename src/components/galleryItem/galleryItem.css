@@ -14,3 +14,13 @@
     }
 
   }
+
+  @media (max-width: 768px) {
+    .bigItem {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    .mediumItem {
+        grid-area: 1 / 2 / 3 / 3;
+    }
+  }

@@ -54,7 +54,7 @@ const getTimeBlocks = (date, serviceTimeTotal) => {
     });
 
     if (!isBooked) {
-      blocks.push(`${formattedStartTime}-${formattedEndTime}`);
+      blocks.push(`${formattedStartTime} - ${formattedEndTime}`);
     }
   }
   return blocks;
@@ -88,7 +88,12 @@ const hasAvailableTimeBlocks = (date, serviceTimeTotal) => {
 // Function to find the next available date based on service time total
 const findNextAvailableDate = (startDate, serviceTimeTotal) => {
   let date = dayjs(startDate);
-  while (!hasAvailableTimeBlocks(date, serviceTimeTotal)) {
+  // Loop until an available date is found that is not on a Sunday or Monday
+  while (
+    !hasAvailableTimeBlocks(date, serviceTimeTotal) ||
+    date.day() === 0 ||
+    date.day() === 1
+  ) {
     date = date.add(1, "day");
   }
   return date;

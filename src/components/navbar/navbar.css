@@ -1,89 +1,159 @@
-@media screen and (min-width: 768px) {
-.navbar{
-    position: fixed;
+/* Base styles */
+.navbar-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 75px;
+    position: fixed;    
     background-color: white;
-    z-index: 99;
+    z-index: 99999;
+    border-bottom: 0.5px solid black;
     top: 0px;
     width: 100vw;
-    height: 75px;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-     border-bottom: 1px solid #1b0760; 
+  }
+
+
+  .toggle-button{
+    background-color: white;
     display: flex;
+    line-height: 60px;
+   margin-top: 9px;
+   margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .navbar-phone{
+    display: none;
+  }
+
+
+  .navbar-desktop .right {
+    display: flex;
+    justify-content: space-evenly; /* This will space the menu items evenly */
+    align-items: center;
+    width: 100%; /* Ensure it takes the full width to distribute space evenly */
+      text-transform: uppercase;
+
+  }
+  
+  .navbar-desktop .left img {
+    width: 72.5px;
+    height: 72.5px;
+  }
+
+  .navbar-phone .left img{
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+  }
     
-}
+  .navbar-phone .menuItem {
+    font-size: 24px;
+    text-transform: uppercase;
+  margin-bottom:10px;
+  border-bottom: 1px solid black;
+  font-size: 24px;
 
-.left{
-    flex: 2;
+  }
+
+  .navbar-desktop .menuItem{
     display: flex;
-    flex-direction: row;
-    padding-left: 80px;
-}
-
-.left img{
-    height: 75px;
-}
-
-.right{
-    flex: 9;
-    text-align: right;
-    padding-right: 160px;
-    color: rgb(101, 101, 101);
-    font-weight: 400;
+  justify-content: center;
+  }
+  
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #333;
+  }
+  
+  /* Dropdown Menu */
+  .menuItems {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-}
-
-.right span{
-    line-height: 80px; 
-    vertical-align: middle;
-    text-transform: uppercase;
-    font-size: 21px;
-    
-}
-}
-
-
-
-.navbar{
+    position: absolute;
+    top: 60px;
+    right: 0px;
     background-color: white;
-    z-index: 99;
-    top: 0px;
-    width: 100%;    
-    display: flex;
-    flex-direction: row;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar-desktop{
+      display: none;
+    }
+
+    .navbar-phone{      
+      display: block;
+      position: fixed;
+      top: 0px;
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      overflow-x: none;
+      z-index: 999999999;
+      height: 60px;
+    }
+
+    .navbar-phone .left img{
+      height: 60px;
+      width: 60px;
+    }
+
+    .navbar-phone .right{
+      width: 100%;
+      display: flex;
+      justify-content: end;
+    }
+
+
+    .hamburger {
+      display: flex; /* Shown in mobile mode */
+    }
+  
+    .menuItems {
+      display: none;
+      width: 30%;
+      top: 60px; /* Adjust as needed */
+      right: 0px;
+    }
+  
+    .menuItems.open {
+      display: flex; /* Show as dropdown in mobile mode */
+      flex-direction: column;
+      position: absolute;
+ 
+      background-color: white;
+      border: 1px solid #ccc;
+
+    }
+  }
+
+
+  /* PC */
+  @media (min-width: 769px){
+    .navbar-desktop{
+      z-index: 99999;
+    }
     
-}
+    .menuItems {
+        display: none;
+        align-items: center;
+        justify-content: space-around; /* Adjusted for clarity */
+        align-items: center;
+        flex: 1; /* Ensure it takes full available space */
+      }
+  }
+  
 
-.left{
-    background-color: white;
-}
-
-.left img{
-    height: 75px;
-}
-
-.right{
-    flex: 9;
-    text-align: left;
-    margin-left: 20px;
-    color: rgb(101, 101, 101);
-    font-weight: 400;
-    display: flex;
-    flex-direction: row;
-
-}
-
-.right span{
-    margin-right: 5px;         
-    line-height: 40px; 
-    vertical-align: middle;
-    text-transform: uppercase;
-    font-size: 21px;
-}
-
-.menuItem{
-    flex: 1;
-    width: 200px;
-    margin-top: 15px;
-}

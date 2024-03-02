@@ -110,3 +110,13 @@
     background-color: gold;
     color:black;
 }
+
+@media (max-width: 768px) {
+    .sliderInfo{
+        width: 100vw;
+        top: 0px;
+    }
+    .sliderInfo h1{
+    font-size: 50px;
+    }
+}

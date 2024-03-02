@@ -26,8 +26,7 @@
             padding: 10px;
             border-radius: 50%;
             margin-top: 5px;
-            padding-bottom: 15px;
-           
+            padding-bottom: 15px;           
         }
     
 .block .serviceWrapper .desc{
@@ -67,7 +66,6 @@
 .block .desc ul{
     list-style-type: square;
     line-height: 1.5;
-
 }
 
 .serviceName{
@@ -87,4 +85,27 @@
 }
 .servicePrice::after{
     content: ",– ";
+}
+
+@media (max-width: 768px) {
+    .block .serviceWrapper{
+        width: 100vw;
+    }
+
+    .serviceWrapper .desc{
+        margin-top: 50px;
+        padding-left: 0px;
+        margin-left: -50px;
+    }
+    .block .serviceWrapper .img .icon{
+      position: absolute;
+      right: 10px;        
+    }
+
+    .block .desc ul{
+        list-style-type: square;
+        line-height: 1.5;
+        margin-left: -20px;
+    }
+
 }

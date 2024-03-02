@@ -35,27 +35,27 @@ export const SliderInfo = () => {
 
             <tr>
               <td className="day">Úterý: </td>
-              <td className="hours">10:00 - 22:00</td>
+              <td className="hours">10:00 - 21:00</td>
             </tr>
 
             <tr>
               <td className="day">Středa: </td>
-              <td className="hours">10:00 - 22:00</td>
+              <td className="hours">10:00 - 21:00</td>
             </tr>
 
             <tr>
               <td className="day">Čtvrtek: </td>
-              <td className="hours">10:00 - 22:00</td>
+              <td className="hours">10:00 - 21:00</td>
             </tr>
 
             <tr>
               <td className="day">Pátek: </td>
-              <td className="hours">10:00 - 22:00</td>
+              <td className="hours">10:00 - 21:00</td>
             </tr>
 
             <tr>
               <td className="day">Sobota: </td>
-              <td className="hours">10:00 - 22:00</td>
+              <td className="hours">10:00 - 21:00</td>
             </tr>
 
             <tr className="closed">
