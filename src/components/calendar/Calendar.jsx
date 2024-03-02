@@ -28,7 +28,7 @@ const convertMinutesToTime = (minutes) => {
 };
 const getTimeBlocks = (date, serviceTimeTotal) => {
   if (serviceTimeTotal === 25) serviceTimeTotal = 30;
-  const formattedSelectedDate = date.format("MM/DD/YYYY");
+  const formattedSelectedDate = date.format("DD.MM.YYYY");
   const opening = convertTimeToMinutes(openingHours);
   const closing = convertTimeToMinutes(closingHours);
   const blocks = [];
@@ -54,14 +54,14 @@ const getTimeBlocks = (date, serviceTimeTotal) => {
     });
 
     if (!isBooked) {
-      blocks.push(`${formattedStartTime}`);
+      blocks.push(`${formattedStartTime}-${formattedEndTime}`);
     }
   }
   return blocks;
 };
 // Function to check if there are available time blocks for a service time total
 const hasAvailableTimeBlocks = (date, serviceTimeTotal) => {
-  const formattedDate = date.format("MM/DD/YYYY");
+  const formattedDate = date.format("DD.MM.YYYY");
   const opening = convertTimeToMinutes(openingHours);
   const closing = convertTimeToMinutes(closingHours);
   let available = false;
@@ -97,6 +97,7 @@ const findNextAvailableDate = (startDate, serviceTimeTotal) => {
 export const Calendar = ({
   setSelectedDateRecord,
   setSelectedTimeRecord,
+  setSelectedTimeRecordEnd,
   serviceTimeTotal,
   setStep,
 }) => {
@@ -141,7 +142,7 @@ export const Calendar = ({
     const dayjsDate = dayjs(date);
     const isSundayOrMonday = dayjsDate.day() === 0 || dayjsDate.day() === 1;
     const isDisabledDate = disabledDates.some((disabledDate) =>
-      dayjsDate.isSame(dayjs(disabledDate, "MM/DD/YYYY"), "day")
+      dayjsDate.isSame(dayjs(disabledDate, "DD.MM.YYYY"), "day")
     );
     return isSundayOrMonday || isDisabledDate;
   };
@@ -161,7 +162,7 @@ export const Calendar = ({
           >
             <DateCalendar
               label="Date"
-              inputFormat="MM/DD/YYYY"
+              inputFormat="DD.MM.YYYY"
               fixedWeekNumber={6}
               shouldDisableDate={shouldDisableDate}
               views={["day", "month"]}

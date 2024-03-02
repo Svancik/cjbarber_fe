@@ -28,7 +28,6 @@ export const Reservation = () => {
   const [selectedDateRecord, setSelectedDateRecord] = useState("");
   const [selectedTimeRecord, setSelectedTimeRecord] = useState("");
   const [serviceTimeTotal, setServiceTimeTotal] = useState(15);
-
   useEffect(() => {
     setStep(1);
     setAdditionalServicesTimeTotal(0);
@@ -50,16 +49,23 @@ export const Reservation = () => {
   }, [selectedService, additionalServicesTimeTotal]);
 
   const sendEmail = () => {
+    let additionalServicesString = "";
+    if (selectedAdditionalServices && selectedAdditionalServices.length > 0) {
+      additionalServicesString = selectedAdditionalServices
+        .map((service) => service.nazev)
+        .join(", ");
+    }
+
     const templateParams = {
       clientName: clientData.fullName,
+      clienPhone: clientData.phone,
       clientEmail: clientData.email,
-      service: selectedService.name, // Assuming selectedService has a name property
-      date: selectedDateRecord,
+      service: selectedService.nazev, // Assuming selectedService has a name property
+      date: selectedDateRecord.format("DD.MM.YYYY"),
       time: selectedTimeRecord,
-      totalPrice: servicesTotalPrice,
+      totalPrice: selectedService.cena + servicesTotalPrice,
       duration: serviceTimeTotal,
-      selectedAdditionalServices: selectedAdditionalServices,
-      // Add other details as needed
+      additionalServices: additionalServicesString,
     };
 
     // Replace 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', and 'YOUR_USER_ID' with your actual EmailJS values
@@ -81,7 +87,7 @@ export const Reservation = () => {
         }
       );
   };
-
+  console.log("phone", clientData.phone);
   //https://www.emailjs.com/ POKRAČOVÁNÍ ZÍTRA
 
   return (
@@ -156,6 +162,11 @@ export const Reservation = () => {
               selectedTimeRecord={selectedTimeRecord}
               selectedDateRecord={selectedDateRecord}
             />
+            <span className="cancelReservation">
+              Zrušte svou rezervaci minimálně 2h před termínem pomocí zavolání,
+              či SMS načíslo 777 607 447. V případě že rezervaci nezrušíte,
+              budete při další návštěvě platit příplatek 100Kč.
+            </span>
             <button
               className="reserveBtn"
               text="Rezervovat termín"
