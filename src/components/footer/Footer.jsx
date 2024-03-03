@@ -25,22 +25,24 @@ export const Footer = () => {
         </div>
 
         <div className="footerRow">
-          <Instagram className="mui" />
           <a href="https://www.instagram.com/cjs_barbershop_/">
+            <Instagram className="mui" />
+
             <span className="bold">Instagram</span>
           </a>
         </div>
 
         <div className="footerRow">
-          <FacebookIcon className="mui" />
           <a href="https://www.facebook.com/people/CJs-Barbershop/100085528367093/?paipv=0&eav=AfaQY-IKyy9lxJp4JMa3QQEH83xOL7OL-Ginrkw_dCSDRNFQtc_y361ICmOeMMIrY&_rdr">
+            <FacebookIcon className="mui" />
             <span className="bold">Facebook</span>
           </a>
         </div>
 
         <div className="footerRow">
-          <MusicNoteIcon className="mui" />
           <a href="https://www.tiktok.com/@cj_s_barbershop">
+            <MusicNoteIcon className="mui" />
+
             <span className="bold">Tik Tok</span>
           </a>
         </div>

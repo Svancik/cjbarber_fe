@@ -4,6 +4,7 @@
     position: relative;
     margin-bottom: 0px;
     margin-top:60px;
+  
 }
    
 
@@ -56,7 +57,16 @@
 }                   
 
 @media (max-width: 768px) {
-    .slider img{
-    opacity: 1;    
+    .slider{
+        height: 650px;
+    }
+    .slider .container{
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .desktop-only{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
     }
 }

@@ -29,7 +29,6 @@
     align-items: center; /*Zarovná itemy uvnitř gridu vertikálně */
     justify-content: center; /*Zarovná CELÝ grid horizontálně*/
     align-content: top; /*Zarovná CELÝ grid vertikálně */
-    padding-bottom: 20px;
     margin-bottom: 50px;
   }
   .galleryItem {
@@ -74,8 +73,9 @@
 
 .hiddenContainer.show {
   opacity: 1;
-  margin-top: 100px;
-  max-height: 1000px; /* Adjust as needed */
+  margin-top: 120px;
+  max-height: fit-content; /* Adjust as needed */
+  padding-bottom: 100px;
 }
 
   .arrow{
@@ -105,8 +105,9 @@
     -moz-box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.95);
     transition: all 1s ease-out;
-      padding-top: -50px;
+      padding-top: -30px;
     padding-left: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 
@@ -194,6 +195,11 @@
   }
 
 @media (max-width: 768px) {
+
+  .galleryWrapper .headerUnderline{
+    width: 80%;
+    height: 1px;
+}
 .galleryWrapper{
   margin-top: 15px;
 }
@@ -202,12 +208,26 @@
   grid-template: repeat(2);
   grid-template-rows: repeat(4, 1fr);
   height: max-content;
-  margin-bottom: 0px;
+}
+
+.galleryItem:hover{
+  cursor:auto;
+  width: 100%;
+  height: 100%;
+  
 }
 
 .hiddenContainer.show {
   opacity: 1;
-  margin-top: -20px;
+  margin-top: -50px;
+  margin-bottom: -100px;
   max-height: max-content; /* Adjust as needed */
+}
+.viewMore{
+  display: none;
+}
+.hiddenGallery{
+  display: block;
+
 }
 }

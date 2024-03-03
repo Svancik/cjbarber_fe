@@ -20,9 +20,21 @@ export const Gallery = ({ col3 }) => {
 
   const toggleViewFullGallery = () => {
     setViewFullGallery(!viewFullGallery);
-    // Reinitialize AOS to ensure animations on newly visible content work correctly
     AOS.refresh();
   };
+
+  // Effect hook to check window size on mount and adjust viewFullGallery state
+  useEffect(() => {
+    // Function to update state based on window width
+    const updateGalleryViewBasedOnWindowSize = () => {
+      const screenWidth = window.innerWidth;
+      // Assuming 768px is the breakpoint for mobile devices
+      if (screenWidth <= 768) {
+        setViewFullGallery(true); // Show more photos by default on mobile
+      }
+    };
+    updateGalleryViewBasedOnWindowSize();
+  }, []);
 
   useEffect(() => {
     AOS.init({
@@ -105,7 +117,6 @@ export const Gallery = ({ col3 }) => {
                   autoPlay
                   muted
                   className="gallerySliderImg"
-                  
                 >
                   <source
                     src={require(`../../media/barbershop/galerie/${allGalleryItems[slideNumber].src}`)}

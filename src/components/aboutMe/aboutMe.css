@@ -5,7 +5,7 @@
     background-color: black;
     color: white;
     height: 64vh;
-    padding-top: 5rem;
+    padding-top: 8.5rem;
     padding-bottom: 0rem;
     margin-bottom: 0px;
     clip-path: polygon(0% 10%, 100% 0%, 100% 86%, 0% 100%);
@@ -17,7 +17,7 @@
 }
 
 .aboutMe{
-    max-width: 1600px;
+    max-width: 65%;
     margin: auto;
     margin-top: 3rem;
     display: flex;
@@ -65,6 +65,8 @@
     color: white;
     line-height: 1.75;
     text-transform: none;
+    font-size: 1.15rem;
+
 }
 
 @media (max-width: 768px) {

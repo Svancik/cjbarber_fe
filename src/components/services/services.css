@@ -25,6 +25,13 @@
 }
    
 @media (max-width: 768px) {
+    .services .headerUnderline{
+        width: 80%;
+        height: 1px;
+        background-color: black;
+        font-weight: 900;
+        font-size: 32px;
+    }
 .services{
     margin-top: -30px;
     max-width: 100vw;

@@ -34,7 +34,7 @@
     align-items: center;
     width: 100%; /* Ensure it takes the full width to distribute space evenly */
       text-transform: uppercase;
-
+    font-size: 1.25rem;
   }
   
   .navbar-desktop .left img {
@@ -49,7 +49,6 @@
   }
     
   .navbar-phone .menuItem {
-    font-size: 24px;
     text-transform: uppercase;
   margin-bottom:10px;
   border-bottom: 1px solid black;
@@ -94,9 +93,11 @@
       display: none;
     }
 
-    .navbar-phone{      
+    .navbar-phone{    
+      padding-top: 5px;  
       display: block;
       position: fixed;
+      background-color: white;
       top: 0px;
       width: 100vw;
       display: flex;
@@ -144,7 +145,7 @@
   /* PC */
   @media (min-width: 769px){
     .navbar-desktop{
-      z-index: 99999;
+      z-index: 99999999;
     }
     
     .menuItems {

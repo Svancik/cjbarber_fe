@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./galleryItem.css";
 
 export const GalleryItem = ({ galleryItem, handleOpen }) => {
+  // State to track if the device is a phone or not
+  const [isPhoneView, setIsPhoneView] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPhoneView(window.innerWidth <= 768);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Function to conditionally call handleOpen based on isPhoneView
+  const conditionalHandleOpen = (id) => {
+    if (!isPhoneView) {
+      handleOpen(id);
+    }
+    // Else, do nothing or handle differently for phone view
+  };
+
   return (
     <>
       {galleryItem.video ? (
@@ -13,12 +36,11 @@ export const GalleryItem = ({ galleryItem, handleOpen }) => {
           }
         >
           <video
-            controls
             loop
             autoPlay
             muted
             className="galleryItem"
-            onClick={() => handleOpen(galleryItem.id - 1)}
+            onClick={() => conditionalHandleOpen(galleryItem.id - 1)}
           >
             <source
               src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}
@@ -33,9 +55,8 @@ export const GalleryItem = ({ galleryItem, handleOpen }) => {
           <img
             src={require(`../../media/barbershop/galerie/${galleryItem.src}`)}
             alt=""
-            srcset=""
-            onClick={() => handleOpen(galleryItem.id - 1)}
             className="galleryItem"
+            onClick={() => conditionalHandleOpen(galleryItem.id - 1)}
           />
         </div>
       )}

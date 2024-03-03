@@ -17,7 +17,16 @@ export const Slider = () => {
     >
       <SliderInfo />
       <div className="container">
-        {/* <img src={require("../../media/samBG.jpg")} alt="" /> */}
+        <img
+          className="desktop-only"
+          src={require("../../media/samBG.jpg")}
+          alt=""
+        />
+        <img
+          className="mobile-only"
+          src={require("../../media/samBGmobile.jpg")}
+          alt=""
+        />
       </div>
     </div>
   );
