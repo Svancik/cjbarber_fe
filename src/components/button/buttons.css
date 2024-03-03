@@ -21,3 +21,11 @@
     color:black;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+.goldButton{
+    position: relative;
+    width: 100%;
+    left: 0;
+}
+}

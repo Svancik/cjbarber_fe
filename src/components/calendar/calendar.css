@@ -67,3 +67,45 @@ height: 400px;
     color: gold;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .calendarWrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .timeBlocksWrapper{
+    margin-left: 40px;
+    margin-top: -40px;
+    padding-bottom: 20px;
+    height: fit-content;
+  }
+  .datePicker{
+    flex: 1;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* You may need to target specific inner classes of the DateCalendar, for example: */
+    .datePicker .MuiTextField-root { /* Example class, adjust based on actual implementation */
+      width: 100%;
+      font-size: inherit; /* This makes the input inherit the font-size from .datePicker */
+    }
+
+    .datePicker .MuiPickersCalendarHeader{
+      font-size: inherit;
+    }
+
+    /* Adjust the calendar popup size */
+    .datePicker .MuiPickersDay-root { /* Example class, adjust based on actual implementation */
+      width: 100%; /* Adjust if necessary */
+      font-size: inherit; /* Adjust font size */
+    }
+  .timeBlocks{
+    height: max-content;
+    
+    grid-template-rows:  1fr 1fr  1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+

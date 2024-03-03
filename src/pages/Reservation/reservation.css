@@ -85,6 +85,35 @@
         color: gold;
       }
 
-/* @media screen {
-   Pro 190x1080 width: 84.5%;
-} */
+      @media (max-width: 768px) {
+        .arrowBackIcon{
+            top: 70px;
+            left: 5px;
+            z-index: 9999999999;
+            width: 25px;
+            height: 25px;
+            color: black;
+        }
+
+    
+        .reservationSection{
+            margin-top: 0px;
+
+        }
+        .reservationFrame{
+            position: absolute;
+            top: 60px;
+            width: 100%;
+        }
+        .reserveBtn{
+            width: 100%;
+            position: relative;
+            left: 0px;
+        }
+        .cancelReservation{
+            font-size: 1.5rem;
+            width: 95%;
+            padding: 10px;
+            text-align: center;
+        }
+      }

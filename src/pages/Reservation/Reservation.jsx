@@ -95,7 +95,7 @@ export const Reservation = () => {
       <Navbar />
       {step > 1 && (
         <ArrowBackIosNewIcon
-          style={{ height: "120px", width: "120px" }}
+          style={{ height: "5rem", width: "5rem" }}
           className="arrowBackIcon"
           onClick={() => {
             setStep(step - 1);

@@ -54,7 +54,7 @@ const getTimeBlocks = (date, serviceTimeTotal) => {
     });
 
     if (!isBooked) {
-      blocks.push(`${formattedStartTime} - ${formattedEndTime}`);
+      blocks.push(`${formattedStartTime}`);
     }
   }
   return blocks;

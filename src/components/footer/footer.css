@@ -48,14 +48,15 @@
 /* Mobile view adjustments */
 @media (max-width: 768px) {
     .footerWrapper {
-        width:76vw;
+ 
+        padding: 40px 0px;
+        width:100vw;
         margin-left: 0px;
         justify-content: left; /* Center content for a cleaner look */
        font-size: 14px; /* Optional: Reduce font size for mobile */
     }
 
     .footerMiddle {
-        margin-left: -80px;
         justify-self: left;
         flex-direction: column; /* Stack elements vertically */
         align-items: left; /* Center-align items for a better look */

@@ -36,3 +36,10 @@ cursor: pointer;
 .additionalService span{
     margin-left: 7.5px;
 }
+
+@media (max-width: 768px) {
+    .categoryBlock{
+        width: 100%;
+        z-index: 99999;
+    }
+}

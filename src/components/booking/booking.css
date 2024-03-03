@@ -136,3 +136,58 @@ text-align: left;
     cursor: pointer;
     box-shadow: 1px 1px 5px whitesmoke;
 }
+
+@media (max-width: 768px) {
+    .bookingWrapper{
+        margin-top: 0px;
+        padding-top: 0px;
+        justify-self: flex-start;
+    }
+
+    .categorySelectWrapper{
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 5px;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        margin-left: 7.5px;   
+
+    }
+    .mainSelect{
+        margin-left: 0px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        width: 100%;
+        padding: 0px;
+    }
+    .wrapperOfServices{
+        margin-left: 0px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .serviceSelectWrapper{
+        margin-top: -40px;
+    }
+    .categoryHeader h1{
+        font-size: 2.5rem;
+    }
+    .serviceSelectBody .MuiFormControlLabel-label {
+        font-size: 1.5rem;
+    }
+    .additionalSelect{
+        height: max-content;
+        padding-top: 0px;
+        margin-top: -20px;
+        justify-self: flex-start;
+    }
+    .checkBoxGrid{
+       margin-left: -20px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+}

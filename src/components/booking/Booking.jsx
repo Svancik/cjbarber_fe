@@ -31,11 +31,6 @@ export const Booking = ({
 
 
         *** Zvážit strap.io databáze ***
-
-
-
-
-
         */
 
   const [selectedCategory, setSelectedCategory] = useState({
@@ -121,6 +116,7 @@ export const Booking = ({
             (category) =>
               !category.isAdditional && (
                 <CategoryBlock
+                  onClick={() => setSelectedCategory(category)}
                   serviceCategory={category}
                   setSelectedCategory={setSelectedCategory}
                   selectedCategoryID={selectedCategory.id}

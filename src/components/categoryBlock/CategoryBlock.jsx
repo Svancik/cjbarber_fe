@@ -15,7 +15,10 @@ export const CategoryBlock = ({
       }
       onClick={() => setSelectedCategory(serviceCategory)}
     >
-      {serviceCategory.header}
+      <span onClick={() => setSelectedCategory(serviceCategory)}>
+        {" "}
+        {serviceCategory.header}
+      </span>
     </div>
   );
 };
