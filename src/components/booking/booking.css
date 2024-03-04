@@ -51,7 +51,7 @@
 
 .additionalSelect{
     align-self: flex-start;
-    padding-top: 205px;
+    padding-top: 100px;
     flex: 1.8;
     margin-bottom: 5px;
 }
@@ -97,9 +97,9 @@ text-align: left;
 .checkBoxGrid{
     display: grid;
     grid-gap: 0px;
-    width: 100%;
+    width: 80%;
    
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
@@ -139,6 +139,8 @@ text-align: left;
 
 @media (max-width: 768px) {
     .bookingWrapper{
+        width: 100%;
+        flex: 1;
         margin-top: 0px;
         padding-top: 0px;
         justify-self: flex-start;
@@ -185,9 +187,14 @@ text-align: left;
         margin-top: -20px;
         justify-self: flex-start;
     }
+    .additionalService span{
+        font-size: 1.1rem;
+
+    }
     .checkBoxGrid{
-       margin-left: -20px;
+       margin-left: 0px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+      
     }
 }

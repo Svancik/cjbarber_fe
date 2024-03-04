@@ -6,18 +6,25 @@ import { Footer } from "../../components/footer/Footer";
 import { Navbar } from "../../components/navbar/Navbar";
 import ScrollToHashElement from "../../components/ScrollToHashElement";
 import { AboutMe } from "../../components/aboutMe/AboutMe";
-
+import "./home.css";
 export const Home = () => {
   return (
-    <div>
-      {" "}
-      <ScrollToHashElement />
-      <Navbar />
-      <Slider />
-      <Services />
-      <AboutMe />
-      <Gallery />
-      <Footer />
+    <div className="home">
+      <div className="pageWrapper">
+        <ScrollToHashElement />
+        <nav>
+          <Navbar />
+        </nav>
+        <div className="bodyContent">
+          <Slider />
+          <Services />
+          <AboutMe />
+          <Gallery />
+        </div>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </div>
   );
 };

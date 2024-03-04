@@ -6,7 +6,7 @@
     color: white;
     height: 64vh;
     padding-top: 8.5rem;
-    padding-bottom: 0rem;
+    padding-bottom: 4rem;
     margin-bottom: 0px;
     clip-path: polygon(0% 10%, 100% 0%, 100% 86%, 0% 100%);
 }
@@ -125,6 +125,11 @@
         text-align: center;
         justify-self: center;
         margin: auto;
+    }
+    .aboutMe .right span{
+        line-height: 1.5;
+        font-size: 1.35rem;
+    
     }
 
     .aboutMe .right{

@@ -56,7 +56,7 @@ export const OverView = ({
               />
             </div>
             <span className="overViewItemText">
-              Datum: <b>{selectedDateRecord.format("DD/MM/YYYY")}</b>
+              Datum: <b>{selectedDateRecord.format("DD.MM.YYYY")}</b>
             </span>
           </div>
         )}

@@ -37,6 +37,11 @@ export const Navbar = () => {
             </Link>
           </div>
           <div className="menuItem">
+            <Link className="link" to="/rezervace">
+              Rezervace
+            </Link>
+          </div>
+          <div className="menuItem">
             <Link className="link" to="/#kdojsem">
               Já
             </Link>
@@ -81,6 +86,11 @@ export const Navbar = () => {
             <div className="menuItem">
               <Link className="link" to="/#sluzby">
                 Služby
+              </Link>
+            </div>
+            <div className="menuItem">
+              <Link className="link" to="/rezervace">
+                Rezervace
               </Link>
             </div>
             <div className="menuItem">

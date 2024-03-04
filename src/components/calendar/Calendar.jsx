@@ -102,7 +102,6 @@ const findNextAvailableDate = (startDate, serviceTimeTotal) => {
 export const Calendar = ({
   setSelectedDateRecord,
   setSelectedTimeRecord,
-  setSelectedTimeRecordEnd,
   serviceTimeTotal,
   setStep,
 }) => {

@@ -81,7 +81,7 @@ height: 400px;
   }
   .datePicker{
     flex: 1;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 10px;
   }
 
@@ -89,6 +89,9 @@ height: 400px;
     .datePicker .MuiTextField-root { /* Example class, adjust based on actual implementation */
       width: 100%;
       font-size: inherit; /* This makes the input inherit the font-size from .datePicker */
+    }
+    .datePicker .MuiPickersCalendarHeader-labelContainer{
+      font-size: inherit;
     }
 
     .datePicker .MuiPickersCalendarHeader{
@@ -104,7 +107,7 @@ height: 400px;
     height: max-content;
     
     grid-template-rows:  1fr 1fr  1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 

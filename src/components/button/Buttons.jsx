@@ -3,12 +3,7 @@ import "./buttons.css";
 
 export const GoldButton = ({ text, setStep, step }) => {
   return (
-    <button
-      className="goldButton"
-      data-aos="fade-right"
-      data-aos-duration="900"
-      onClick={() => setStep(step + 1)}
-    >
+    <button className="goldButton" onClick={() => setStep(step + 1)}>
       {text}
     </button>
   );

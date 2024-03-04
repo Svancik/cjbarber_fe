@@ -40,6 +40,6 @@ cursor: pointer;
 @media (max-width: 768px) {
     .categoryBlock{
         width: 100%;
-        z-index: 99999;
+      
     }
 }

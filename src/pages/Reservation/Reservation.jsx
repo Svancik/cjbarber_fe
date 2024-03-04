@@ -91,98 +91,117 @@ export const Reservation = () => {
   //https://www.emailjs.com/ POKRAČOVÁNÍ ZÍTRA
 
   return (
-    <div className="reservationWrapper">
-      <Navbar />
-      {step > 1 && (
-        <ArrowBackIosNewIcon
-          style={{ height: "5rem", width: "5rem" }}
-          className="arrowBackIcon"
-          onClick={() => {
-            setStep(step - 1);
-            setAdditionalServicesTimeTotal(0);
-          }}
-          data-aos="fade-right"
-          data-aos-duration="1200"
-        />
-      )}
-      {step === 1 && (
-        <div className="reservationSection">
-          <div
-            className="reservationFrame"
-            data-aos="fade-right"
-            data-aos-duration="1200"
-          >
-            <Booking
-              setSelectedService={setSelectedService}
-              selectedService={selectedService}
-              setServicesTotalPrice={setServicesTotalPrice}
-              selectedAdditionalServices={selectedAdditionalServices}
-              setSelectedAdditionalServices={setSelectedAdditionalServices}
-              setAdditionalServicesTimeTotal={setAdditionalServicesTimeTotal}
+    <div className="reservation">
+      <div className="pageWrapper">
+        <nav>
+          <Navbar />
+        </nav>
+        <div className="bodyContent">
+          {step > 1 && (
+            <ArrowBackIosNewIcon
+              style={{ height: "5rem", width: "5rem" }}
+              className="arrowBackIcon"
+              onClick={() => {
+                setStep(step - 1);
+                setAdditionalServicesTimeTotal(0);
+              }}
+              data-aos="fade-right"
+              data-aos-duration="1200"
             />
-            {selectedService && (
-              <GoldButton
-                text="Pokračovat k rezervaci termínu"
-                setStep={setStep}
-                step={step}
-              />
-            )}
-          </div>
+          )}
+          {step === 1 && (
+            <div className="reservationSection">
+              <div
+                className="reservationFrame mobileFullWidth"
+                data-aos="fade-right"
+                data-aos-duration="1200"
+              >
+                <Booking
+                  setSelectedService={setSelectedService}
+                  selectedService={selectedService}
+                  setServicesTotalPrice={setServicesTotalPrice}
+                  selectedAdditionalServices={selectedAdditionalServices}
+                  setSelectedAdditionalServices={setSelectedAdditionalServices}
+                  setAdditionalServicesTimeTotal={
+                    setAdditionalServicesTimeTotal
+                  }
+                />
+
+                <button
+                  className="reserveBtn"
+                  text="Rezervovat termín"
+                  onClick={() => {
+                    setStep(2);
+                  }}
+                  step={step}
+                  disabled={!selectedService}
+                >
+                  Vybrat termín
+                </button>
+              </div>
+            </div>
+          )}
+          {step === 2 && (
+            <div className="reservationSection">
+              <div
+                className="reservationFrame"
+                data-aos="fade-right"
+                data-aos-duration="1200"
+              >
+                <Calendar
+                  setSelectedDateRecord={setSelectedDateRecord}
+                  setSelectedTimeRecord={setSelectedTimeRecord}
+                  serviceTimeTotal={serviceTimeTotal}
+                  setStep={setStep}
+                />
+              </div>
+            </div>
+          )}
+          {step === 3 && (
+            <div className="reservationSection">
+              <div
+                className="reservationFrame"
+                data-aos="fade-right"
+                data-aos-duration="1200"
+              >
+                <ClientInfo setClientData={setClientData} />
+                <OverView
+                  servicesTotalPrice={servicesTotalPrice}
+                  serviceTimeTotal={serviceTimeTotal}
+                  selectedAdditionalServices={selectedAdditionalServices}
+                  selectedService={selectedService}
+                  selectedTimeRecord={selectedTimeRecord}
+                  selectedDateRecord={selectedDateRecord}
+                />
+                <span className="cancelReservation">
+                  Zrušte svou rezervaci minimálně 2h před termínem pomocí
+                  zavolání, či SMS načíslo 777 607 447. V případě že rezervaci
+                  nezrušíte, budete při další návštěvě platit příplatek 100Kč.
+                </span>
+                <button
+                  className="reserveBtn"
+                  text="Rezervovat termín"
+                  setStep={setStep}
+                  onClick={sendEmail}
+                  step={step}
+                  disabled={
+                    !(
+                      clientData.fullName &&
+                      clientData.email &&
+                      clientData.phone
+                    )
+                  }
+                >
+                  Rezervovat termín
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      {step === 2 && (
-        <div className="reservationSection">
-          <div
-            className="reservationFrame"
-            data-aos="fade-right"
-            data-aos-duration="1200"
-          >
-            <Calendar
-              setSelectedDateRecord={setSelectedDateRecord}
-              setSelectedTimeRecord={setSelectedTimeRecord}
-              serviceTimeTotal={serviceTimeTotal}
-              setStep={setStep}
-            />
-          </div>
-        </div>
-      )}
-      {step === 3 && (
-        <div className="reservationSection">
-          <div
-            className="reservationFrame"
-            data-aos="fade-right"
-            data-aos-duration="1200"
-          >
-            <ClientInfo setClientData={setClientData} />
-            <OverView
-              servicesTotalPrice={servicesTotalPrice}
-              serviceTimeTotal={serviceTimeTotal}
-              selectedAdditionalServices={selectedAdditionalServices}
-              selectedService={selectedService}
-              selectedTimeRecord={selectedTimeRecord}
-              selectedDateRecord={selectedDateRecord}
-            />
-            <span className="cancelReservation">
-              Zrušte svou rezervaci minimálně 2h před termínem pomocí zavolání,
-              či SMS načíslo 777 607 447. V případě že rezervaci nezrušíte,
-              budete při další návštěvě platit příplatek 100Kč.
-            </span>
-            <button
-              className="reserveBtn"
-              text="Rezervovat termín"
-              setStep={setStep}
-              onClick={sendEmail}
-              step={step}
-              disabled={
-                !(clientData.fullName && clientData.email && clientData.phone)
-              }
-            >
-              Rezervovat termín
-            </button>
-          </div>
-        </div>
-      )}{" "}
-      <Footer />
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </div>
   );
 };

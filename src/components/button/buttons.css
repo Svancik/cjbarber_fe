@@ -24,8 +24,11 @@
 
 @media (max-width: 768px) {
 .goldButton{
-    position: relative;
+    position: fixed;
     width: 100%;
     left: 0;
+    height: 60px;
+    margin-top: 40px;
+    bottom: 0;
 }
 }

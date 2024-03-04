@@ -14,6 +14,11 @@ body{
   overflow-x: hidden;
 }
 
+
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -68,7 +73,7 @@ h1, h2{
   width: 55px;
   height: 55px;
   margin-right: 17.5px;
-  margin-bottom: -2.5px;
+  margin-bottom: -5px;
 }
 
 .link{
@@ -89,4 +94,11 @@ h1, h2{
   margin-top: 20px;
 }
 
-
+@media (max-width: 768px) {
+.mui{        
+  width: 75px;
+  height: 75px;
+  margin-right: 7.5px;
+  margin-bottom: 0px;
+}
+}
